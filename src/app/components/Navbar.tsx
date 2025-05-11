@@ -9,9 +9,13 @@ import {
   XMarkIcon,
   Bars3Icon,
 } from "@heroicons/react/24/outline";
+import { useTheme } from "../context/ThemeContext";
+
 
 const Navbar = () => {
-  const theme = "dark"; // Replace with your theme logic
+//   const theme = "dark"; // Replace with your theme logic
+const { theme, toggleTheme } = useTheme();
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const pathname = usePathname();
   const toggleMobileMenu = () => {
@@ -27,7 +31,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed w-full bg-dark/80 backdrop-blur-sm z-50">
+    <nav className="fixed w-full bg-white/80  dark:bg-dark/80 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-700 shadow-sm transition-colors">
       <div className="container max-w-7xl mx-auto px-4">
         {/* For Desktop menu items  */}
 
@@ -53,8 +57,8 @@ const Navbar = () => {
               );
             })}
             <button
-              className="p-2 rounded-lg hover:bg-gray-100 text-white hover:text-primary transition-colors cursor-pointer"
-              onClick={toggleMobileMenu}
+              className="p-2 rounded-lg hover:bg-gray-100  dark:text-white dark:hover:bg-gray-800 hover:text-primary transition-colors cursor-pointer"
+              onClick={toggleTheme}
             >
               {theme === "dark" ? (
                 <SunIcon className="w-6 h-6" />
@@ -99,7 +103,7 @@ const Navbar = () => {
               <div>
                 <button
                   className="flex items-center py-2 rounded-lg hover:text-primary transition-colors"
-                  onClick={toggleMobileMenu}
+                  onClick={toggleTheme}
                 >
                   {theme === "dark" ? (
                     <>
