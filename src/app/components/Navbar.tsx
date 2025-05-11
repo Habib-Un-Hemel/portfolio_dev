@@ -36,8 +36,11 @@ const { theme, toggleTheme } = useTheme();
         {/* For Desktop menu items  */}
 
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="text-xl font-bold text-primary">
-            Hemel&trade;
+          {/* <Link href="/" className="text-xl font-bold text-primary">
+            {/* Hemel.Portfolio&trade; */}
+          <Link href="/" className="text-xl font-bold">
+            <span className="text-primary text-4xl">Hemel</span>
+            <span className="text-white text-xl">.dev</span>
           </Link>
 
           {/* Desktop menus  */}
