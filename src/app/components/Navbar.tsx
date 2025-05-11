@@ -1,9 +1,14 @@
-"use client"; // This is a client component but bydefault it is a server component in nextjs
+"use client"; // This is a client component but by default it is a server component in Next.js
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
-import { SunIcon,MoonIcon } from "@heroicons/react/24/outline";
+import {
+  SunIcon,
+  MoonIcon,
+  XMarkIcon,
+  Bars3Icon,
+} from "@heroicons/react/24/outline";
 
 const Navbar = () => {
   const theme = "dark"; // Replace with your theme logic
@@ -28,7 +33,7 @@ const Navbar = () => {
 
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="text-xl font-bold text-primary">
-            Devfolio&trade;
+            Hemel&trade;
           </Link>
 
           {/* Desktop menus  */}
@@ -47,40 +52,71 @@ const Navbar = () => {
                 </Link>
               );
             })}
-            <button className="p-2 rounded-lg hover:bg-gray-100 text-primary dark:hover:bg-gray-800 transition-colors cursor-pointer" onClick={toggleMobileMenu}>
-                {
-                    theme === "dark" ? (
-                        <SunIcon className="w-6 h-6" />
-                    ) : (
-                        <MoonIcon className="w-6 h-6" />
-                    )
-
-                }
+            <button
+              className="p-2 rounded-lg hover:bg-gray-100 text-white hover:text-primary transition-colors cursor-pointer"
+              onClick={toggleMobileMenu}
+            >
+              {theme === "dark" ? (
+                <SunIcon className="w-6 h-6" />
+              ) : (
+                <MoonIcon className="w-6 h-6" />
+              )}
             </button>
           </div>
+
+          {/* mobile menu button */}
+          <button
+            onClick={toggleMobileMenu}
+            className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors cursor-pointer"
+          >
+            {isMobileMenuOpen ? (
+              <XMarkIcon className="w-6 h-6" />
+            ) : (
+              <Bars3Icon className="w-6 h-6" />
+            )}
+          </button>
         </div>
 
         {/* Mobile menu */}
-        <div className="md:hidden">
-          <button onClick={toggleMobileMenu} className="text-white">
-            {isMobileMenuOpen ? "Close" : "Open"} Menu
-          </button>
-          {isMobileMenuOpen && (
-            <div className="flex flex-col items-center space-y-4 bg-dark/90 p-4">
-              {menuItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`text-white hover:text-primary ${
-                    pathname === item.href ? "text-primary" : ""
-                  }`}
+        {isMobileMenuOpen && (
+          <div className="md:hidden">
+            <div className="py-4 space-y-4">
+              {menuItems.map((item, index) => {
+                return (
+                  <div key={index} onClick={toggleMobileMenu}>
+                    <Link
+                      href={item.href}
+                      className={`text-white hover:text-primary ${
+                        pathname === item.href ? "text-primary" : ""
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  </div>
+                );
+              })}
+
+              <div>
+                <button
+                  className="flex items-center py-2 rounded-lg hover:text-primary transition-colors"
+                  onClick={toggleMobileMenu}
                 >
-                  {item.label}
-                </Link>
-              ))}
+                  {theme === "dark" ? (
+                    <>
+                      <SunIcon className="w-6 h-6 mr-2" />
+                      Light Mode
+                    </>
+                  ) : (
+                    <>
+                      <MoonIcon className="w-6 h-6 mr-2" />
+                      Dark Mode
+                    </>
+                  )}
+                </button>
+              </div>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </nav>
   );
