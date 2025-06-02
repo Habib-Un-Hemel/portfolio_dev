@@ -27,7 +27,9 @@ export default function Projects() {
             <motion.article
             // title of the projects 
               key={project.title}
-              className="bg-white dark:bg-dark/50 rounded-lg shadow-md p-6"
+              // className="bg-white dark:bg-dark/50 rounded-lg shadow-md p-6"
+              className="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md p-6"
+
               // variants={fadeInUp}
               // {...cardHoverSmall}
             >

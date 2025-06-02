@@ -31,7 +31,7 @@ const { theme, toggleTheme } = useTheme();
   ];
 
   return (
-    <nav className="fixed w-full bg-white/80  dark:bg-dark/80 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-700 shadow-sm transition-colors">
+    <nav className="fixed w-full bg-[#f0f2f5]/80 dark:bg-[#37514f]/80 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-700 shadow-sm transition-colors">
       <div className="container max-w-7xl mx-auto px-4">
         {/* For Desktop menu items  */}
 
@@ -60,7 +60,7 @@ const { theme, toggleTheme } = useTheme();
               );
             })}
             <button
-              className="p-2 rounded-lg hover:bg-gray-100  dark:text-white dark:hover:bg-gray-800 hover:text-primary transition-colors cursor-pointer"
+              className="p-2 rounded-lg hover:bg-[#e0f0ef] dark:text-white dark:hover:bg-[#37514f] hover:text-primary transition-colors cursor-pointer"
               onClick={toggleTheme}
             >
               {theme === "dark" ? (
@@ -74,7 +74,7 @@ const { theme, toggleTheme } = useTheme();
           {/* mobile menu button */}
           <button
             onClick={toggleMobileMenu}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors cursor-pointer"
+            className="md:hidden p-2 rounded-lg hover:bg-[#e0f0ef] dark:hover:bg-[#37514f] transition-colors cursor-pointer"
           >
             {isMobileMenuOpen ? (
               <XMarkIcon className="w-6 h-6" />

@@ -1,19 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #007AFF;
-  --color-secondary: #6B7280;
+  --color-primary: #14b8a6;
+  --color-secondary: #4b5563;
   --color-dark: #1F2937;
   --color-light: #F9FAFB;
   --color-text: #000000;
-  --color-bg: #ffffff;
+  --color-bg: #f0f2f5;
 
   --font-sans: 'Inter', sans-serif;
 
   --animation-fade-in: fadeIn 0.5s ease-in-out;
   --animation-slide-up: slideUp 0.5s ease-in-out;
 }
-
 
 @custom-variant dark (&:where(.dark, .dark *));
 
