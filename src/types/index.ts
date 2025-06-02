@@ -8,6 +8,7 @@ export interface Project {
 } 
 
 export interface Blog{
+    id: Key | null | undefined;
     title: string;
     excerpt: string;
     date: string;
