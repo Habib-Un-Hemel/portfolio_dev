@@ -36,7 +36,9 @@ export default function Projects() {
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            className="bg-white dark:bg-dark/50 rounded-lg shadow-md overflow-hidden"
+            // className="bg-white dark:bg-dark/50 rounded-lg shadow-md overflow-hidden"
+            className="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md p-6"
+
             // variants={fadeInUp}
             // {...cardHoverSmall}
           >
