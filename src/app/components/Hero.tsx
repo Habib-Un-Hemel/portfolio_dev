@@ -1,18 +1,68 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaGithub, FaLinkedin, FaTwitter, FaMailBulk } from "react-icons/fa";
+import { motion } from "framer-motion";
+
+// Motion variants
+const fadeInLeft = {
+  initial: { opacity: 0, x: -50 },
+  animate: { opacity: 1, x: 0 },
+};
+
+const scaleIn = {
+  initial: { opacity: 0, scale: 0.8 },
+  animate: { opacity: 1, scale: 1 },
+};
 
 const Hero = () => {
   return (
     <section className="py-20 container max-w-7xl mx-auto px-4">
       <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-10">
         {/* Left Side: Text Content */}
-        <div className="md:w-1/2 text-center md:text-left">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
+        <motion.div
+          className="md:w-1/2 text-center md:text-left"
+          {...fadeInLeft}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          {/*  */}
+          {/* <h1 className="text-4xl md:text-6xl font-bold mb-4">
             Hi, I&apos;m{" "}
             <span className="text-primary">Habibun Nabi Hemel</span>
+          </h1> */}
+
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 flex items-center gap-2 flex-wrap">
+            Hi, I&apos;m
+            <motion.span
+              initial={{ opacity: 0, x: 10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+              className="text-primary"
+            >
+              Habibun
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, x: 10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 1, duration: 0.5 }}
+              className="text-primary"
+            >
+              Nabi
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, x: 10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 1.5, duration: 0.5 }}
+              className="text-primary"
+            >
+              Hemel
+            </motion.span>
+            <span className="text-primary animate-ping ml-1 w-2 h-2 bg-primary rounded-full inline-block"></span>
           </h1>
+
+          {/*  */}
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-6">
             Full Stack Developer • UI/UX Enthusiast • Open Source Contributor
           </p>
@@ -65,10 +115,14 @@ const Hero = () => {
               Contact Me
             </Link>
           </div>
-        </div>
+        </motion.div>
 
         {/* Right Side: Circular Image */}
-        <div className="md:w-1/2 flex justify-center md:justify-end">
+        <motion.div
+          className="md:w-1/2 flex justify-center md:justify-end"
+          {...scaleIn}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+        >
           <Image
             src="/formal_main.png"
             alt="Profile"
@@ -77,7 +131,7 @@ const Hero = () => {
             className="rounded-full object-cover ring-4 ring-primary shadow-lg h-72 w-72"
             quality={100}
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );
