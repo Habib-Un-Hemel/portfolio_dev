@@ -40,7 +40,7 @@ const { theme, toggleTheme } = useTheme();
             {/* Hemel.Portfolio&trade; */}
           <Link href="/" className="text-xl font-bold">
             <span className="text-primary text-4xl">Hemel</span>
-            <span className="text-white text-xl">.dev</span>
+            <span className="text-white text-xl">.INTP</span>
           </Link>
 
           {/* Desktop menus  */}

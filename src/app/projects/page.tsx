@@ -4,7 +4,7 @@ import { projects } from "@/contents/projects";
 import Image from "next/image";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
-// import { fadeInUp, staggerContainer, cardHoverSmall } from "@/utils/animations";
+import { fadeInUp, staggerContainer, cardHoverSmall } from "@/utils/animation";
 
 export default function Projects() {
   return (
@@ -29,18 +29,18 @@ export default function Projects() {
 
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-8"
-        // variants={staggerContainer}
+        variants={staggerContainer}
         initial="initial"
         animate="animate"
       >
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            // className="bg-white dark:bg-dark/50 rounded-lg shadow-md overflow-hidden"
-            className="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md p-6"
+            className="bg-white dark:bg-dark/50 rounded-lg shadow-md overflow-hidden"
+            // className="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md p-6"
 
-            // variants={fadeInUp}
-            // {...cardHoverSmall}
+            variants={fadeInUp}
+            {...cardHoverSmall}
           >
             <motion.div
               className="aspect-video bg-gray-200 dark:bg-gray-800"
@@ -122,7 +122,7 @@ export default function Projects() {
               </motion.div>
             </div>
           </motion.div>
-          
+
         ))}
       </motion.div>
     </div>

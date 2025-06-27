@@ -61,3 +61,10 @@ a {
     opacity: 1;
   }
 }
+
+
+.text-align-fix {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
