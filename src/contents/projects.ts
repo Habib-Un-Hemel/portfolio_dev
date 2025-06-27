@@ -2,14 +2,15 @@ import { Project } from "@/types";
 
 export const projects: Project[] = [
   {
-    title: "E-commerce Platform",
+    title: "FutureFit",
     description:
-      "A full-stack e-commerce platform built with Next.js, TypeScript, and Tailwind CSS.",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe"],
-    githubLink: "https://github.com",
+      "FutureFit is a machine learning project designed for BSc students, predicting job opportunities and salaries based on past graduate data.",
+    technologies: ["Python", "Scikit-learn", "Streamlit", "Machine Learning"],
+    githubLink: "https://github.com/Habib-Un-Hemel/futurefit",
     demoLink: "https://demo.com",
-    image: "/projects/e-commerce-website.png",
+    image: "/projects/future.png",
   },
+
   {
     title: "Task Management App",
     description:
