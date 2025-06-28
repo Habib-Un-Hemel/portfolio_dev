@@ -21,6 +21,41 @@ export default function Contact() {
   });
   const [status, setStatus] = useState<FormStatus>("idle");
 
+  // // Initialize EmailJS
+  // useEffect(() => {
+  //   emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!);
+  // }, []);
+
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setStatus("loading");
+
+  //   try {
+  //     await emailjs.send(
+  //       process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+  //       process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+  //       {
+  //         from_name: formData.name,
+  //         from_email: formData.email,
+  //         message: formData.message,
+  //         to_email: "habibun33hemel@gmail.com", // my email address
+  //       }
+  //     );
+
+  //     setStatus("success");
+  //     setFormData({ name: "", email: "", message: "" });
+
+  //     // Reset status after 5 seconds
+  //     setTimeout(() => setStatus("idle"), 5000);
+  //   } catch (error) {
+  //     console.error("Failed to send email:", error);
+  //     setStatus("error");
+
+  //     // Reset status after 5 seconds
+  //     setTimeout(() => setStatus("idle"), 5000);
+  //   }
+  // };
+
   // Initialize EmailJS
   useEffect(() => {
     emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!);
@@ -31,14 +66,27 @@ export default function Contact() {
     setStatus("loading");
 
     try {
+      // Send message to your email
       await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!, // Your admin template
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
-          to_email: "habibun33hemel@gmail.com", // Your email address
+          to_email: "habibun33hemel@gmail.com",
+          date_time: new Date().toLocaleString(),
+        }
+      );
+
+      // Send auto-reply to user
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_AUTOREPLY_TEMPLATE_ID!, // Auto-reply template
+        {
+          to_name: formData.name,
+          to_email: formData.email,
+          date_time: new Date().toLocaleString(),
         }
       );
 
@@ -50,8 +98,6 @@ export default function Contact() {
     } catch (error) {
       console.error("Failed to send email:", error);
       setStatus("error");
-
-      // Reset status after 5 seconds
       setTimeout(() => setStatus("idle"), 5000);
     }
   };
