@@ -1,3 +1,5 @@
+import { Key } from 'react';
+
 export interface Project {
     title: string;
     description: string;

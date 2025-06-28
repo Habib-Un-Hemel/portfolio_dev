@@ -98,8 +98,10 @@ export default function Contact() {
           <motion.div>
             <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
             <p className="text-secondary">
-              I'm always open to discussing new projects, creative ideas, or
-              opportunities to be part of your visions.
+              I&apos;m eager to collaborate on innovative projects, particularly
+              in web applications, machine learning, and the emerging field of
+              machine unlearning. Let&apos;s discuss how we can bring your
+              vision to life.
             </p>
           </motion.div>
 
@@ -256,7 +258,7 @@ export default function Contact() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-                Message sent successfully! I'll get back to you soon.
+                Message sent successfully! I&apos;ll get back to you soon.
               </motion.div>
             )}
 

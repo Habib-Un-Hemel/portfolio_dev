@@ -2,8 +2,6 @@
 
 import {
   FaCode,
-  FaLaptopCode,
-  FaGraduationCap,
   FaDatabase,
   FaPython,
   FaJava,
@@ -12,7 +10,7 @@ import {
   FaAward,
   FaFlask,
   FaSchool,
-  FaTrophy,
+ 
   FaUsers,
   FaNodeJs,
   FaUniversity,
@@ -20,12 +18,11 @@ import {
   FaDocker,
   FaChalkboardTeacher, // Add this
   FaBook, // Add this
-  FaFlag, // Add this
 } from "react-icons/fa";
 import {
   SiTensorflow,
   SiPytorch,
-  SiKeras,
+ 
   SiExpress,
   SiTailwindcss,
   SiMongodb,
