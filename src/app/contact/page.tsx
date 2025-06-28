@@ -1,14 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
-// import {
-//   fadeInUp,
-//   fadeIn,
-//   slideInLeft,
-//   slideInRight,
-// } from "@/utils/animations";
+import emailjs from "@emailjs/browser";
 
 interface FormData {
   name: string;
@@ -26,25 +21,38 @@ export default function Contact() {
   });
   const [status, setStatus] = useState<FormStatus>("idle");
 
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!);
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) throw new Error("Failed to send message");
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: "habibun33hemel@gmail.com", // Your email address
+        }
+      );
 
       setStatus("success");
       setFormData({ name: "", email: "", message: "" });
-    } catch {
+
+      // Reset status after 5 seconds
+      setTimeout(() => setStatus("idle"), 5000);
+    } catch (error) {
+      console.error("Failed to send email:", error);
       setStatus("error");
+
+      // Reset status after 5 seconds
+      setTimeout(() => setStatus("idle"), 5000);
     }
   };
 
@@ -58,10 +66,12 @@ export default function Contact() {
   };
 
   return (
-    <div className="container max-w-7xl mx-auto py-12">
+    <div className="container max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
       <motion.h1
         className="text-4xl font-bold mb-8 text-center"
-        // {...fadeInUp}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
       >
         Contact Me
       </motion.h1>
@@ -70,27 +80,21 @@ export default function Contact() {
         {/* Contact Information */}
         <motion.div
           className="space-y-8"
-          // {...slideInLeft}
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <motion.div
-          // {...fadeInUp}
-          >
+          <motion.div>
             <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
             <p className="text-secondary">
-              I&apos;m always open to discussing new projects, creative ideas,
-              or opportunities to be part of your visions.
+              I'm always open to discussing new projects, creative ideas, or
+              opportunities to be part of your visions.
             </p>
           </motion.div>
 
-          <motion.div
-            className="space-y-4"
-            // variants={fadeIn}
-            initial="initial"
-            animate="animate"
-          >
+          <motion.div className="space-y-4">
             <motion.div
               className="flex items-center gap-4"
-              // variants={fadeInUp}
               whileHover={{ x: 10 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
@@ -98,7 +102,7 @@ export default function Contact() {
               <div>
                 <h3 className="font-semibold">Email</h3>
                 <a
-                  href="mailto:your.email@example.com"
+                  href="mailto:habibun33hemel@gmail.com"
                   className="text-secondary hover:text-primary"
                 >
                   habibun33hemel@gmail.com
@@ -108,7 +112,6 @@ export default function Contact() {
 
             <motion.div
               className="flex items-center gap-4"
-              // variants={fadeInUp}
               whileHover={{ x: 10 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
@@ -126,7 +129,6 @@ export default function Contact() {
 
             <motion.div
               className="flex items-center gap-4"
-              // variants={fadeInUp}
               whileHover={{ x: 10 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
@@ -141,20 +143,17 @@ export default function Contact() {
 
         {/* Contact Form */}
         <motion.div
-          className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md"
-          // {...slideInRight}
+          className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <motion.form
-            onSubmit={handleSubmit}
-            className="space-y-6"
-            // variants={fadeIn}
-            initial="initial"
-            animate="animate"
-          >
-            <motion.div
-            //  variants={fadeInUp}
-            >
-              <label htmlFor="name" className="block text-sm font-medium mb-2">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium mb-2 dark:text-gray-300"
+              >
                 Name
               </label>
               <input
@@ -164,14 +163,15 @@ export default function Contact() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-dark focus:ring-2 focus:ring-primary focus:border-transparent"
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
               />
-            </motion.div>
+            </div>
 
-            <motion.div
-            // variants={fadeInUp}
-            >
-              <label htmlFor="email" className="block text-sm font-medium mb-2">
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium mb-2 dark:text-gray-300"
+              >
                 Email
               </label>
               <input
@@ -181,16 +181,14 @@ export default function Contact() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-dark focus:ring-2 focus:ring-primary focus:border-transparent"
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
               />
-            </motion.div>
+            </div>
 
-            <motion.div
-            // variants={fadeInUp}
-            >
+            <div>
               <label
                 htmlFor="message"
-                className="block text-sm font-medium mb-2"
+                className="block text-sm font-medium mb-2 dark:text-gray-300"
               >
                 Message
               </label>
@@ -200,41 +198,68 @@ export default function Contact() {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                rows={4}
-                className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-dark focus:ring-2 focus:ring-primary focus:border-transparent"
+                rows={5}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
               />
-            </motion.div>
+            </div>
 
             <motion.button
               type="submit"
               disabled={status === "loading"}
-              className="w-full btn btn-primary"
+              className="w-full bg-primary text-white py-3 px-6 rounded-lg font-medium hover:bg-primary/90 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              {status === "loading" ? "Sending..." : "Send Message"}
+              {status === "loading" ? (
+                <span className="flex items-center justify-center gap-2">
+                  <svg
+                    className="animate-spin h-5 w-5 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>
+                  Sending...
+                </span>
+              ) : (
+                "Send Message"
+              )}
             </motion.button>
 
             {status === "success" && (
-              <motion.p
-                className="text-green-500 text-center"
+              <motion.div
+                className="p-4 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-lg"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-                Message sent successfully!
-              </motion.p>
+                Message sent successfully! I'll get back to you soon.
+              </motion.div>
             )}
 
             {status === "error" && (
-              <motion.p
-                className="text-red-500 text-center"
+              <motion.div
+                className="p-4 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-lg"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-                Failed to send message. Please try again.
-              </motion.p>
+                Failed to send message. Please try again or email me directly at
+                habibun33hemel@gmail.com
+              </motion.div>
             )}
-          </motion.form>
+          </form>
         </motion.div>
       </div>
     </div>

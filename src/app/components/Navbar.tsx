@@ -11,10 +11,9 @@ import {
 } from "@heroicons/react/24/outline";
 import { useTheme } from "../context/ThemeContext";
 
-
 const Navbar = () => {
-//   const theme = "dark"; // Replace with your theme logic
-const { theme, toggleTheme } = useTheme();
+  //   const theme = "dark"; // Replace with your theme logic
+  const { theme, toggleTheme } = useTheme();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const pathname = usePathname();
@@ -26,7 +25,7 @@ const { theme, toggleTheme } = useTheme();
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/projects", label: "Projects" },
-    { href: "/blogs", label: "Blogs" },
+    { href: "/highlights", label: "Highlights" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -40,7 +39,7 @@ const { theme, toggleTheme } = useTheme();
             {/* Hemel.Portfolio&trade; */}
           <Link href="/" className="text-xl font-bold">
             <span className="text-primary text-4xl">Hemel</span>
-            <span className="text-white text-xl">.INTP</span>
+            <span className=" text-xl">.INTP</span>
           </Link>
 
           {/* Desktop menus  */}

@@ -25,7 +25,6 @@ import {
 import {
   SiTensorflow,
   SiPytorch,
-
   SiKeras,
   SiExpress,
   SiTailwindcss,
@@ -546,7 +545,6 @@ export default function About() {
           </div>
         </div>
       </motion.section>
-
 
       {/* Education Section */}
       <motion.section {...fadeIn} transition={{ delay: 0.6 }}>

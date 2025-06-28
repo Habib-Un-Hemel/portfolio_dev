@@ -105,7 +105,7 @@ const Hero = () => {
           <div className="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
             <Link
               href="/projects"
-              className="bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/80 transition-colors w-full md:w-auto text-center"
+              className="bg-teal-800 text-white px-8 py-3 rounded-lg hover:bg-primary/80 transition-colors w-full md:w-auto text-center"
             >
               View Projects
             </Link>
@@ -116,8 +116,8 @@ const Hero = () => {
               Contact Me
             </Link> */}
             <Link
-              href="/contact"
-              className="bg-teal-800 text-white hover:bg-teal-900 px-8 py-3 rounded-lg transition-colors w-full md:w-auto text-center font-bold shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+              href="https://drive.google.com/file/d/14jaFTRxzspkJAS1uotYH_51Ec8hq9f5U/view?usp=sharing"
+              className=" bg-primary text-white hover:bg-teal-900 px-8 py-3 rounded-lg transition-colors w-full md:w-auto text-center font-bold shadow-md hover:shadow-lg flex items-center justify-center gap-2"
             >
               Download CV
               <FaDownload className="text-sm" />
