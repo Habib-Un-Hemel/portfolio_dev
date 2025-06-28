@@ -116,7 +116,8 @@ const Hero = () => {
               Contact Me
             </Link> */}
             <Link
-              href="https://drive.google.com/file/d/14jaFTRxzspkJAS1uotYH_51Ec8hq9f5U/view?usp=sharing"
+              // href="https://drive.google.com/file/d/14jaFTRxzspkJAS1uotYH_51Ec8hq9f5U/view?usp=sharing"
+              href="https://drive.google.com/drive/folders/1-EDuIhN8IDAl3Tq_he0DxPLYK5-qvPZp?usp=sharing"
               className=" bg-primary text-white hover:bg-teal-900 px-8 py-3 rounded-lg transition-colors w-full md:w-auto text-center font-bold shadow-md hover:shadow-lg flex items-center justify-center gap-2"
             >
               Download CV
