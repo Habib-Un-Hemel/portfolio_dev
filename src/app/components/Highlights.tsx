@@ -14,6 +14,19 @@ type Card = {
 
 const achievementAwards: Card[] = [
   {
+    title: "Duke of Edinburgh's International Award",
+    subtitle: "Bronze Standard",
+    description:
+      "Recognized for exceptional leadership and community service contributions",
+    image: "/highlight/duke3.png",
+  },
+  {
+    title: "Code Samurai 2024",
+    subtitle: "National Hackathon",
+    description: "Ranked 116 out of 406 teams (Top 30%)",
+    image: "/highlight/sumrai3.png",
+  },
+  {
     title: "8-Time Merit Scholar",
     subtitle: "BRAC University",
     description:
@@ -27,19 +40,6 @@ const achievementAwards: Card[] = [
       "Received VC's List Award in 3 semesters (GPA 3.9–4.0) and Dean's List Award in 5 semesters (GPA 3.8–3.9)",
 
     image: "/highlight/vc.png",
-  },
-  {
-    title: "Duke of Edinburgh's International Award",
-    subtitle: "Bronze Standard",
-    description:
-      "Recognized for exceptional leadership and community service contributions",
-    image: "/highlight/duke3.png",
-  },
-  {
-    title: "Code Samurai 2024",
-    subtitle: "National Hackathon",
-    description: "Ranked 116 out of 406 teams (Top 30%)",
-    image: "/highlight/sumrai3.png",
   },
 ];
 
