@@ -2,6 +2,47 @@ import { Project } from "@/types";
 
 export const projects: Project[] = [
   {
+    title: "Auto Bazar ",
+    description:
+      "AutoBazar is a full stack bike marketplace, offering AI-guided bike listings, real-time availability, and a seamless buy, sell, or rent experience",
+    technologies: [
+      "Express.js",
+      "PostgreSQL",
+      "Node.js",
+      "React",
+      "Tailwind CSS",
+      "Clerk,",
+    ],
+    githubLink: "https://github.com/Habib-Un-Hemel/Auto-Bazaar",
+    demoLink: "https://auto-bazaar-three.vercel.app/",
+    image: "/projects/bike2.png",
+  },
+  {
+    title: "NoteShare",
+    description:
+      "A MERN stack resource platform for seamless students collaboration, enabling material sharing, note access, and organized discussions.",
+    technologies: [
+      "Express.js",
+      "MongoDB",
+      "Node.js",
+      "React",
+      "Tailwind CSS",
+      "FireBase",
+    ],
+    githubLink: "https://github.com/Habib-Un-Hemel/NoteShare",
+    demoLink: "https://note-share-frontend.vercel.app/",
+    image: "/projects/study.png",
+  },
+  {
+    title: "Portfolio Website",
+    description:
+      "My personal portfolio website showcasing my projects, skills, education, and experience. Mostly, I current Works on different fields",
+    technologies: ["Next.js", "Tailwind CSS", "Framer Motion","TypeScript"],
+    githubLink: "https://github.com/Habib-Un-Hemel/portfolio_dev",
+    demoLink: "https://demo.com",
+    image: "/projects/portfolio.png",
+  },
+  {
     title: "Triajao: Travel Hotel Management System",
     description:
       "Triajao is a website that works like a bucket filled with hotels, tour guides, and venue suggestions",
@@ -11,15 +52,7 @@ export const projects: Project[] = [
     demoLink: "https://github.com/Habib-Un-Hemel",
     image: "/projects/Triajao.png",
   },
-  {
-    title: "Portfolio Website",
-    description:
-      "My personal portfolio website showcasing my projects, skills, education, and experience. Mostly, I current Works on different fields",
-    technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
-    githubLink: "https://github.com/Habib-Un-Hemel/portfolio_dev",
-    demoLink: "https://demo.com",
-    image: "/projects/portfolio.png",
-  },
+
   {
     title: "Rentology - Online Rental Platform",
     description:
@@ -66,6 +99,4 @@ export const projects: Project[] = [
       "https://drive.google.com/file/d/158crpJrMZaLfyiP30Cet5GEuK23guJIl/view?usp=sharing",
     image: "/projects/line.png",
   },
-
-
 ];
