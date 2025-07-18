@@ -1,4 +1,10 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+<p align="center">
+  <img src="photo/portfolio.png" width="960" title="data">
+  <br>
+  <br>
+</p>
+
 
 ## Getting Started
 
