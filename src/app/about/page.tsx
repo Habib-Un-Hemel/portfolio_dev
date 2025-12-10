@@ -10,19 +10,19 @@ import {
   FaAward,
   FaFlask,
   FaSchool,
- 
   FaUsers,
   FaNodeJs,
   FaUniversity,
   FaGitAlt,
   FaDocker,
-  FaChalkboardTeacher, // Add this
-  FaBook, // Add this
+  FaChalkboardTeacher,
+  FaBook,
+  FaBriefcase,
+  FaGem, // For Ruby
 } from "react-icons/fa";
 import {
   SiTensorflow,
   SiPytorch,
- 
   SiExpress,
   SiTailwindcss,
   SiMongodb,
@@ -30,6 +30,8 @@ import {
   SiStreamlit,
   SiLinux,
   SiJavascript,
+  SiRubyonrails,
+  SiPostgresql,
 } from "react-icons/si";
 import { motion } from "framer-motion";
 import {
@@ -101,6 +103,7 @@ export default function About() {
                   name: "Python",
                 },
                 { icon: <FaJava className="text-red-500" />, name: "Java" },
+                { icon: <FaGem className="text-red-600" />, name: "Ruby" },
               ].map((skill, index) => (
                 <li
                   key={index}
@@ -158,7 +161,7 @@ export default function About() {
           >
             <div className="flex items-center mb-4">
               <div className="p-3 rounded-full bg-primary/10 text-primary mr-4">
-                <FaNodeJs className="h-6 w-6" />
+                <SiRubyonrails className="h-6 w-6" />
               </div>
               <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
                 Backend
@@ -166,6 +169,10 @@ export default function About() {
             </div>
             <ul className="space-y-3">
               {[
+                {
+                  icon: <SiRubyonrails className="text-red-600" />,
+                  name: "Ruby on Rails",
+                },
                 {
                   icon: <FaNodeJs className="text-green-500" />,
                   name: "Node.js",
@@ -176,10 +183,6 @@ export default function About() {
                   ),
                   name: "Express",
                 },
-                // {
-                //   icon: <FaDatabase className="text-blue-500" />,
-                //   name: "REST APIs",
-                // },
               ].map((skill, index) => (
                 <li
                   key={index}
@@ -209,11 +212,14 @@ export default function About() {
             <ul className="space-y-3">
               {[
                 {
+                  icon: <SiPostgresql className="text-blue-600" />,
+                  name: "PostgreSQL",
+                },
+                {
                   icon: <SiMongodb className="text-green-500" />,
                   name: "MongoDB",
                 },
                 { icon: <SiMysql className="text-blue-500" />, name: "MySQL" },
-                // { icon: <FaDatabase className="text-gray-500" />, name: "SQL" },
               ].map((skill, index) => (
                 <li
                   key={index}
@@ -308,70 +314,29 @@ export default function About() {
       </motion.section>
 
       {/* Experience Section */}
-      <motion.section className="mb-8" {...fadeIn} transition={{ delay: 0.4 }}>
-        <motion.h2
-          className="text-3xl font-bold  text-center text-gray-800 dark:text-white"
-          {...fadeInUp}
-        >
-          Experience
-        </motion.h2>
-        <motion.div
-          className="max-w-3xl mx-auto space-y-3"
-          variants={staggerContainer}
-          initial="initial"
-          animate="animate"
-        >
-          {/* <motion.div
-            className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700"
-            variants={fadeInUp}
-            {...cardHoverSmall}
-          >
-            <div className="flex items-start">
-              <div className="p-2 rounded-full bg-primary/10 text-primary mr-4 mt-1">
-                <FaGraduationCap className="h-5 w-5" />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-1 text-gray-800 dark:text-white">
-                  Teaching Assistant / Student Tutor
-                </h3>
-                <p className="text-primary mb-3">
-                  Brac University • 2024 - Present
-                </p>
-                <ul className="text-gray-600 dark:text-gray-300 space-y-2 pl-5 list-disc">
-                  <li>Teaching Assistant for STA201, STA101, and PHY111</li>
-                  <li>
-                    Conducted weekly student consultations and academic support
-                  </li>
-                  <li>Evaluated assignments, quizzes, and exam scripts</li>
-                </ul>
-              </div>
-            </div>
-          </motion.div> */}
-        </motion.div>
-      </motion.section>
-
       <motion.section className="mb-20" {...fadeIn} transition={{ delay: 0.4 }}>
-        {/* <motion.h2
+        <motion.h2
           className="text-3xl font-bold mb-12 text-center text-gray-800 dark:text-white"
           {...fadeInUp}
         >
+          Experience
           <div className="w-24 h-1 bg-primary mx-auto mt-4 rounded-full" />
-        </motion.h2> */}
+        </motion.h2>
 
         <div className="max-w-4xl mx-auto">
-          {/* University Header */}
+          {/* Professional Experience Header */}
           <motion.div
             className="flex items-center justify-center mb-10"
             {...fadeInUp}
           >
             <div className="flex items-center bg-white dark:bg-gray-800 px-6 py-3 rounded-full shadow-md border border-gray-100 dark:border-gray-700">
-              <FaUniversity className="text-primary mr-3" />
+              <FaBriefcase className="text-primary mr-3" />
               <span className="font-semibold text-gray-800 dark:text-white">
-                BRAC University
+                Professional Experience
               </span>
               <span className="mx-2 text-gray-400">|</span>
               <span className="text-sm text-gray-600 dark:text-gray-300">
-                2024 - Present
+                Current
               </span>
             </div>
           </motion.div>
@@ -381,7 +346,7 @@ export default function About() {
             {/* Vertical timeline line */}
             <div className="absolute left-8 top-0 h-full w-1 bg-gradient-to-b from-primary to-gray-200 dark:to-gray-700" />
 
-            {/* Current Position */}
+            {/* Current Job - iFarmer.asia */}
             <motion.div
               className="relative pl-20 pb-12 group"
               variants={fadeInUp}
@@ -389,6 +354,90 @@ export default function About() {
             >
               {/* Timeline dot */}
               <div className="absolute left-0 top-1 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                <FaBriefcase className="h-4 w-4" />
+              </div>
+
+              {/* Position card */}
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 transform transition-all duration-300 group-hover:-translate-y-1">
+                <div className="absolute top-0 right-0 bg-primary text-white px-3 py-1 text-xs font-bold rounded-bl-lg">
+                  CURRENT
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-800 dark:text-white">
+                      Junior Software Engineer (Backend)
+                    </h3>
+                    <p className="text-gray-500 dark:text-gray-400">
+                      <span className="font-medium">
+                        Agricultural Technology Solutions
+                      </span>
+                    </p>
+                    <p className="text-primary">iFarmer.asia</p>
+                  </div>
+                  <span className="inline-block sm:mt-0 px-3 py-1 bg-primary/10 text-primary dark:text-primary-light rounded-full text-sm font-medium">
+                    Sep 2024 - Present
+                  </span>
+                </div>
+
+                <div className="mt-6 space-y-4">
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0 mt-1">
+                      <div className="h-2 w-2 rounded-full bg-primary" />
+                    </div>
+                    <p className="ml-3 text-gray-600 dark:text-gray-300">
+                      Developing scalable backend systems using{" "}
+                      <span className="font-medium text-gray-800 dark:text-white">
+                        Ruby on Rails and PostgreSQL
+                      </span>
+                    </p>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0 mt-1">
+                      <div className="h-2 w-2 rounded-full bg-primary" />
+                    </div>
+                    <p className="ml-3 text-gray-600 dark:text-gray-300">
+                      Building RESTful APIs and implementing business logic for
+                      agricultural technology solutions
+                    </p>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0 mt-1">
+                      <div className="h-2 w-2 rounded-full bg-primary" />
+                    </div>
+                    <p className="ml-3 text-gray-600 dark:text-gray-300">
+                      Optimizing database queries and maintaining system
+                      performance
+                    </p>
+                  </div>
+                </div>
+
+                {/* Tech Stack */}
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {[
+                    "Ruby on Rails",
+                    "PostgreSQL",
+                    "REST APIs",
+                    "Backend Development",
+                  ].map((tech, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 bg-primary/10 text-primary dark:text-primary-300 rounded-full text-xs font-medium"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Current Teaching Position */}
+            <motion.div
+              className="relative pl-20 pb-12 group"
+              variants={fadeInUp}
+              {...cardHoverSmall}
+            >
+              {/* Timeline dot */}
+              <div className="absolute left-0 top-1 flex h-8 w-8 items-center justify-center rounded-full bg-gray-400 text-white shadow-lg transform group-hover:scale-110 transition-transform duration-300">
                 <FaChalkboardTeacher className="h-4 w-4" />
               </div>
 
@@ -404,75 +453,56 @@ export default function About() {
                         Department of Computer Science & Engineering
                       </span>
                     </p>
-                    <p className="text-primary ">Brac University</p>
+                    <p className="text-gray-400">BRAC University</p>
                   </div>
-                  <span className="inline-block  sm:mt-0 px-3 py-1 bg-primary/10 text-primary dark:text-primary-light rounded-full text-sm font-medium">
-                    June 2024 - Present
+                  <span className="inline-block sm:mt-0 px-3 py-1 bg-teal-500/10 text-gray-400 dark:text-gray-400 rounded-full text-sm font-medium">
+                    June 2025 - Sep 2025
                   </span>
                 </div>
-                {/* Conducted weekly in-person and online consultations, offering
-                academic guidance and subject clarification to CSE freshmen
-                across multiple platforms including Discord. Collaborated with
-                faculty to support students academically, assisted
-                probation/retake students, and upheld departmental standards
-                through regular reporting and communication. */}
-                {/* <div className="mt-6 space-y-4">
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 mt-1">
-                      <div className="h-2 w-2 rounded-full bg-primary" />
-                    </div>
-                    <p className="ml-3 text-gray-600 dark:text-gray-300">
-                      Teaching{" "}
-                      <span className="font-medium text-gray-800 dark:text-white">
-                        CSE111: Programming Language I
-                      </span>
-                    </p>
-                  </div>
-                </div> */}
+
                 <div className="mt-6 space-y-4">
                   <div className="flex items-start">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="h-2 w-2 rounded-full bg-teal-500" />
+                      <div className="h-2 w-2 rounded-full bg-gray-400" />
                     </div>
                     <p className="ml-3 text-gray-600 dark:text-gray-300">
                       Teaching:{" "}
                       <span className="font-medium text-gray-800 dark:text-white">
-                        CSE111(Object-oriented programming)
+                        CSE111 (Object-oriented Programming)
                       </span>
                     </p>
                   </div>
                   <div className="flex items-start">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="h-2 w-2 rounded-full bg-teal-500" />
+                      <div className="h-2 w-2 rounded-full bg-gray-400" />
                     </div>
                     <p className="ml-3 text-gray-600 dark:text-gray-300">
-                      Conducted weekly 15hours inperson and online
-                      consultations, offering academic guidance, subject
-                      clarification to CSE freshmen across multiple platforms
-                      including Discord.
+                      Conducted weekly 15-hour in-person and online
+                      consultations, offering academic guidance and subject
+                      clarification to CSE freshmen
                     </p>
                   </div>
                   <div className="flex items-start">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="h-2 w-2 rounded-full bg-teal-500" />
+                      <div className="h-2 w-2 rounded-full bg-gray-400" />
                     </div>
                     <p className="ml-3 text-gray-600 dark:text-gray-300">
                       Collaborated with faculty to support students
-                      academically, assisted probation/retake students.
+                      academically, assisted probation/retake students
                     </p>
                   </div>
                 </div>
               </div>
             </motion.div>
 
-            {/* Previous Position */}
+            {/* Previous Teaching Position */}
             <motion.div
               className="relative pl-20 pb-12 group"
               variants={fadeInUp}
               {...cardHoverSmall}
             >
               {/* Timeline dot */}
-              <div className="absolute left-0 top-1 flex h-8 w-8 items-center justify-center rounded-full bg-teal-500 text-white shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+              <div className="absolute left-0 top-1 flex h-8 w-8 items-center justify-center rounded-full bg-gray-400 text-white shadow-lg transform group-hover:scale-110 transition-transform duration-300">
                 <FaBook className="h-4 w-4" />
               </div>
 
@@ -488,9 +518,9 @@ export default function About() {
                         Department of Mathematics & Natural Sciences
                       </span>
                     </p>
-                    <p className="text-primary ">Brac University</p>
+                    <p className="text-gray-400">BRAC University</p>
                   </div>
-                  <span className="inline-block mt-1 sm:mt-0 px-3 py-1 bg-teal-500/10 text-teal-600 dark:text-teal-400 rounded-full text-sm font-medium">
+                  <span className="inline-block mt-1 sm:mt-0 px-3 py-1 bg-gray-400/10 text-gray-600 dark:text-gray-400 rounded-full text-sm font-medium">
                     May 2024 - May 2025
                   </span>
                 </div>
@@ -498,7 +528,7 @@ export default function About() {
                 <div className="mt-6 space-y-4">
                   <div className="flex items-start">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="h-2 w-2 rounded-full bg-teal-500" />
+                      <div className="h-2 w-2 rounded-full bg-gray-400" />
                     </div>
                     <p className="ml-3 text-gray-600 dark:text-gray-300">
                       Taught{" "}
@@ -509,7 +539,7 @@ export default function About() {
                   </div>
                   <div className="flex items-start">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="h-2 w-2 rounded-full bg-teal-500" />
+                      <div className="h-2 w-2 rounded-full bg-gray-400" />
                     </div>
                     <p className="ml-3 text-gray-600 dark:text-gray-300">
                       Conducted weekly student consultations and provided
@@ -518,7 +548,7 @@ export default function About() {
                   </div>
                   <div className="flex items-start">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="h-2 w-2 rounded-full bg-teal-500" />
+                      <div className="h-2 w-2 rounded-full bg-gray-400" />
                     </div>
                     <p className="ml-3 text-gray-600 dark:text-gray-300">
                       Evaluated assignments, quizzes, and exam scripts for 100+
@@ -529,14 +559,14 @@ export default function About() {
               </div>
             </motion.div>
 
-            {/* University Footer */}
+            {/* Experience Footer */}
             <motion.div
               className="relative pl-20 pt-6 text-center"
               {...fadeInUp}
             >
               <div className="inline-flex items-center text-sm text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 px-4 py-2 rounded-full">
-                <FaUniversity className="mr-2" />
-                Continuing my teaching journey at BRAC University
+                <FaBriefcase className="mr-2" />
+                Building expertise in both software development and education
               </div>
             </motion.div>
           </div>
@@ -587,9 +617,6 @@ export default function About() {
 
                 <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    {/* <h4 className="font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                      Achievements:
-                    </h4> */}
                     <ul className="space-y-2">
                       <li className="flex items-start">
                         <FaStar className="text-yellow-400 mt-1 mr-2 flex-shrink-0" />
@@ -607,9 +634,6 @@ export default function About() {
                   </div>
 
                   <div>
-                    {/* <h4 className="font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                      Research Focus:
-                    </h4> */}
                     <div className="flex items-start">
                       <FaFlask className="text-purple-400 mt-1 mr-2 flex-shrink-0" />
                       <p className="text-gray-600 dark:text-gray-300">
@@ -662,12 +686,6 @@ export default function About() {
                         <span className="text-gray-600 dark:text-gray-300">
                           GPA: 5.00/5.00 (Science Group)
                         </span>
-                      </li>
-                      <li className="flex items-start">
-                        {/* <FaTrophy className="text-amber-500 mt-1 mr-2 flex-shrink-0" />
-                        <span className="text-gray-600 dark:text-gray-300">
-                          Top 1% of graduating class
-                        </span> */}
                       </li>
                     </ul>
                   </div>
