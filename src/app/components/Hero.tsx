@@ -62,16 +62,16 @@ const Hero = () => {
           </h1>
 
           <p className="text-lg  md:text-xl text-gray-600 dark:text-gray-300 mb-6">
-            Undergrad Teaching Assistant • Aspiring Software Engineer •
-            DofE-Bronze • Full Stack(MERN) • Java, Python, JavaScript
+            Junior Software Engineer • Java, Python, Ruby On Rails • Former 
+            Teaching Assistant • DofE-Bronze • Aspiring Lecturer
           </p>
 
           <p className="text-base md:text-lg text-gray-600 dark:text-gray-400 mb-6 text-align-fix">
-            I am a passionate 4th year Computer Science student interested in
-            problem-solving and Machine Learning. Currently, I am enhancing my
-            development skills by working on full-stack projects using the MERN
-            stack, alongside my role as a Teaching Assistant and maintaining a
-            merit-based scholarship.
+            Backend Software Engineer experienced in Ruby on Rails development,
+            coupled with a background in academic mentorship as a former
+            Teaching Assistant. Interested in applying this dual expertise in a
+            contractual lecturer role to enhance student learning with
+            real-world software engineering practices.
           </p>
 
           <p className="font-medium mb-3">Connect with me here! ⬇️</p>

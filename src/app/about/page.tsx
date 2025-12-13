@@ -56,10 +56,14 @@ export default function About() {
           className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-align-fix"
           {...fadeInUp}
         >
-          I am a passionate 4th year Computer Science student interested in
-          problem-solving and Machine Learning. Currently enhancing my
-          development skills while working as a Teaching Assistant and
-          maintaining a merit-based scholarship.
+          Junior Software Engineer with Ruby on Rails backend development
+          experience at iFarmer Asia, currently working on digital supply chain
+          solutions by building a app called "Supplier Connect". Former
+          Undergraduate Teaching Assistant at BRAC University, mentoring 250+
+          students through academic consultations in programming and statistics
+          courses. I aim to apply industry-level software engineering
+          expertise in academic settings as a contractual lecturer, bridging
+          practical development experience with computer science education.
         </motion.p>
       </motion.div>
 
@@ -595,9 +599,9 @@ export default function About() {
             variants={fadeInUp}
             {...cardHoverSmall}
           >
-            <div className="absolute top-0 right-0 bg-primary text-white px-3 py-1 text-xs font-bold rounded-bl-lg">
-              CURRENT
-            </div>
+            {/* <div className="absolute top-0 right-0 bg-primary text-white px-3 py-1 text-xs font-bold rounded-bl-lg">
+              
+            </div> */}
             <div className="flex items-start">
               <div className="p-3 rounded-full bg-primary/10 text-primary mr-4">
                 <FaUniversity className="h-6 w-6" />
@@ -611,7 +615,7 @@ export default function About() {
                     <p className="text-primary font-medium">BRAC University</p>
                   </div>
                   <span className="inline-block mt-2 sm:mt-0 px-3 py-1 bg-primary/10 text-primary dark:text-primary-light rounded-full text-sm font-medium">
-                    2022 - 2025 (Expected)
+                    2022 - 2025
                   </span>
                 </div>
 
@@ -627,7 +631,7 @@ export default function About() {
                       <li className="flex items-start">
                         <FaAward className="text-blue-400 mt-1 mr-2 flex-shrink-0" />
                         <span className="text-gray-600 dark:text-gray-300">
-                          Merit-based Scholarship Recipient
+                          ⁠Graduated with Highest Distinction
                         </span>
                       </li>
                     </ul>

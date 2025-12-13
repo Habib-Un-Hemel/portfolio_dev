@@ -9,6 +9,7 @@ import {
   FaNodeJs,
   FaGitAlt,
   FaDocker,
+  FaGem, // For Ruby
 } from "react-icons/fa";
 import {
   SiTensorflow,
@@ -20,6 +21,8 @@ import {
   SiStreamlit,
   SiLinux,
   SiJavascript,
+  SiRubyonrails, // For Ruby on Rails
+  SiPostgresql, // For PostgreSQL
 } from "react-icons/si";
 import { motion } from "framer-motion";
 import {
@@ -63,6 +66,10 @@ export default function Skills() {
             </div>
             <ul className="space-y-3">
               {[
+                {
+                  icon: <FaGem className="text-red-600" />,
+                  name: "Ruby",
+                },
                 {
                   icon: <SiJavascript className="text-yellow-400" />,
                   name: "JavaScript",
@@ -129,7 +136,7 @@ export default function Skills() {
           >
             <div className="flex items-center mb-4">
               <div className="p-3 rounded-full bg-primary/10 text-primary mr-4">
-                <FaNodeJs className="h-6 w-6" />
+                <SiRubyonrails className="h-6 w-6" />
               </div>
               <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
                 Backend
@@ -137,6 +144,10 @@ export default function Skills() {
             </div>
             <ul className="space-y-3">
               {[
+                {
+                  icon: <SiRubyonrails className="text-red-600" />,
+                  name: "Ruby on Rails",
+                },
                 {
                   icon: <FaNodeJs className="text-green-500" />,
                   name: "Node.js",
@@ -175,6 +186,10 @@ export default function Skills() {
             </div>
             <ul className="space-y-3">
               {[
+                {
+                  icon: <SiPostgresql className="text-blue-600" />,
+                  name: "PostgreSQL",
+                },
                 {
                   icon: <SiMongodb className="text-green-500" />,
                   name: "MongoDB",
