@@ -10,6 +10,14 @@ export interface Project {
     categories: string[];
 }
 
+export interface Writing {
+    title: string;
+    excerpt?: string;
+    date: string;
+    link: string;
+    image: string;
+}
+
 export interface Blog{
     id: Key | null | undefined;
     title: string;

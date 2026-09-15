@@ -3,6 +3,7 @@ import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import About from "./components/About";
 import Highlights from "./components/Highlights";
+import Writing from "./components/Writing";
 import ContactSection from "./components/Contact";
 
 export default function Home() {
@@ -23,6 +24,10 @@ export default function Home() {
 
       <section id="highlights" className="scroll-mt-24 py-12">
         <Highlights />
+      </section>
+
+      <section id="writing" className="scroll-mt-24">
+        <Writing />
       </section>
 
       <section id="contact" className="scroll-mt-24">
