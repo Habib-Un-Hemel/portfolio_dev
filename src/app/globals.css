@@ -16,6 +16,10 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+html {
+  scroll-behavior: smooth;
+}
+
 a {
   transition: all 0.2s ease;
 }

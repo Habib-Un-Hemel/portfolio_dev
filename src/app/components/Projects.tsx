@@ -7,11 +7,6 @@ import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, cardHoverSmall } from "@/utils/animation";
 
 export default function Projects() {
-  // Get first 3 projects or featured projects
-  const featuredProjects = projects.slice(0, 3);
-  // Alternatively, you could filter by a "featured" property if your data has it:
-  // const featuredProjects = projects.filter(project => project.featured);
-
   return (
     <section className="py-20">
       <div className="container max-w-7xl mx-auto px-4">
@@ -19,7 +14,7 @@ export default function Projects() {
           className="text-4xl font-bold mb-12 text-center text-gray-800 dark:text-white"
           {...fadeInUp}
         >
-          Featured Projects
+          My Projects
           <div className="w-24 h-1 bg-primary mx-auto mt-4 rounded-full" />
         </motion.h2>
 
@@ -29,7 +24,7 @@ export default function Projects() {
           initial="initial"
           animate="animate"
         >
-          {featuredProjects.map((project) => (
+          {projects.map((project) => (
             <motion.article
               key={project.title}
               className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow duration-300"

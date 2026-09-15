@@ -1,8 +1,6 @@
 "use client"; // This is a client component but by default it is a server component in Next.js
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   SunIcon,
   MoonIcon,
@@ -11,23 +9,65 @@ import {
 } from "@heroicons/react/24/outline";
 import { useTheme } from "../context/ThemeContext";
 
+const menuItems = [
+  { href: "#home", label: "Home" },
+  { href: "#about", label: "About" },
+  { href: "#projects", label: "Projects" },
+  { href: "#highlights", label: "Highlights" },
+  { href: "#contact", label: "Contact" },
+];
+
 const Navbar = () => {
-  //   const theme = "dark"; // Replace with your theme logic
   const { theme, toggleTheme } = useTheme();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
-  const pathname = usePathname();
+  const [activeSection, setActiveSection] = useState<string>("home");
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const menuItems = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/projects", label: "Projects" },
-    { href: "/highlights", label: "Highlights" },
-    { href: "/contact", label: "Contact" },
-  ];
+  // Track which section is currently in view to highlight the matching nav item
+  useEffect(() => {
+    const sectionIds = menuItems.map((item) => item.href.slice(1));
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visible[0]) {
+          setActiveSection(visible[0].target.id);
+        }
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleNavClick = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+      e.preventDefault();
+      const id = href.slice(1);
+      const target = document.getElementById(id);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        history.replaceState(null, "", href);
+        setActiveSection(id);
+      }
+      setIsMobileMenuOpen(false);
+    },
+    []
+  );
 
   return (
     <nav className="fixed w-full bg-[#f0f2f5]/80 dark:bg-[#37514f]/80 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-700 shadow-sm transition-colors">
@@ -35,27 +75,30 @@ const Navbar = () => {
         {/* For Desktop menu items  */}
 
         <div className="flex items-center justify-between h-16">
-          {/* <Link href="/" className="text-xl font-bold text-primary">
-            {/* Hemel.Portfolio&trade; */}
-          <Link href="/" className="text-xl font-bold">
+          <a
+            href="#home"
+            onClick={(e) => handleNavClick(e, "#home")}
+            className="text-xl font-bold"
+          >
             <span className="text-primary text-4xl">Hemel</span>
             <span className=" text-xl">.INTP</span>
-          </Link>
+          </a>
 
           {/* Desktop menus  */}
           <div className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) => {
-              const isActive = pathname === item.href;
+              const isActive = activeSection === item.href.slice(1);
               return (
-                <Link
+                <a
                   key={item.href}
                   href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className={`hover:text-primary transition-colors font-medium ${
                     isActive ? "text-primary" : ""
                   }`}
                 >
                   {item.label}
-                </Link>
+                </a>
               );
             })}
             <button
@@ -88,16 +131,18 @@ const Navbar = () => {
           <div className="md:hidden">
             <div className="py-4 space-y-4">
               {menuItems.map((item, index) => {
+                const isActive = activeSection === item.href.slice(1);
                 return (
-                  <div key={index} onClick={toggleMobileMenu}>
-                    <Link
+                  <div key={index}>
+                    <a
                       href={item.href}
-                      className={`text-white hover:text-primary ${
-                        pathname === item.href ? "text-primary" : ""
+                      onClick={(e) => handleNavClick(e, item.href)}
+                      className={`block text-white hover:text-primary ${
+                        isActive ? "text-primary" : ""
                       }`}
                     >
                       {item.label}
-                    </Link>
+                    </a>
                   </div>
                 );
               })}

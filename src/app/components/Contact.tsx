@@ -13,7 +13,7 @@ interface FormData {
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
-export default function Contact() {
+export default function ContactSection() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
