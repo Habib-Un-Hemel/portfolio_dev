@@ -16,6 +16,7 @@ export const projects: Project[] = [
     githubLink: "https://github.com/Habib-Un-Hemel/Auto-Bazaar",
     demoLink: "https://auto-bazaar-three.vercel.app/",
     image: "/projects/bike2.png",
+    categories: ["Featured Projects", "Web Development"],
   },
   {
     title: "NoteShare",
@@ -32,15 +33,17 @@ export const projects: Project[] = [
     githubLink: "https://github.com/Habib-Un-Hemel/NoteShare",
     demoLink: "https://note-share-frontend.vercel.app/",
     image: "/projects/study.png",
+    categories: ["Featured Projects", "Web Development", "Real-World Projects"],
   },
   {
     title: "Portfolio Website",
     description:
       "My personal portfolio website showcasing my projects, skills, education, and experience. Mostly, I current Works on different fields",
-    technologies: ["Next.js", "Tailwind CSS", "Framer Motion","TypeScript"],
+    technologies: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
     githubLink: "https://github.com/Habib-Un-Hemel/portfolio_dev",
     demoLink: "https://demo.com",
     image: "/projects/portfolio.png",
+    categories: ["Featured Projects", "Web Development"],
   },
   {
     title: "Triajao: Travel Hotel Management System",
@@ -51,6 +54,7 @@ export const projects: Project[] = [
       "https://github.com/Habib-Un-Hemel/Triajao-Travel-Hotel-Management-System/tree/main",
     demoLink: "https://github.com/Habib-Un-Hemel",
     image: "/projects/Triajao.png",
+    categories: ["Web Development"],
   },
 
   {
@@ -70,6 +74,7 @@ export const projects: Project[] = [
     demoLink:
       "https://www.youtube.com/watch?v=AWwddChkik4&ab_channel=HabibunNabiHemel",
     image: "/projects/rentology.png",
+    categories: ["Featured Projects", "Web Development", "AI & ML"],
   },
   {
     title: "FutureFit",
@@ -79,6 +84,7 @@ export const projects: Project[] = [
     githubLink: "https://github.com/Habib-Un-Hemel/futurefit",
     demoLink: "https://futurefit.streamlit.app/",
     image: "/projects/future.png",
+    categories: ["AI & ML"],
   },
   {
     title: "Digital Agriculture Market Place",
@@ -88,6 +94,17 @@ export const projects: Project[] = [
     githubLink: "https://github.com/Nester916/farm_arket",
     demoLink: "https://github.com/Habib-Un-Hemel",
     image: "/projects/farm.png",
+    categories: ["Web Development"],
+  },
+  {
+    title: "Supplier Connect",
+    description:
+      "A public-facing supply chain platform for suppliers at iFarmer.asia, digitizing manual workflows through a mobile app now live on the Google Play Store. Owned roughly 80-90% of backend development, building 60+ APIs from scratch across the full software development lifecycle - design, iteration, testing, and training.",
+    technologies: ["Ruby on Rails", "PostgreSQL", "REST APIs"],
+    githubLink: "",
+    demoLink: "https://play.google.com/store/apps/details?id=asia.ifarmer.supplier&pcampaignid=web_share",
+    image: "/projects/supplier_connect_2.png",
+    categories: ["Real-World Projects"],
   },
   {
     title: "Line Follower Robot",
@@ -98,5 +115,6 @@ export const projects: Project[] = [
     demoLink:
       "https://drive.google.com/file/d/158crpJrMZaLfyiP30Cet5GEuK23guJIl/view?usp=sharing",
     image: "/projects/line.png",
+    categories: ["Robotics & IoT"],
   },
 ];
