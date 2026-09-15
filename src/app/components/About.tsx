@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   FaStar,
   FaAward,
@@ -10,6 +11,7 @@ import {
   FaChalkboardTeacher,
   FaBook,
   FaBriefcase,
+  FaGooglePlay,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 import {
@@ -19,6 +21,7 @@ import {
   staggerContainer,
   cardHoverSmall,
 } from "@/utils/animation";
+import { experienceApps } from "@/contents/experienceApps";
 
 export default function About() {
   return (
@@ -33,14 +36,17 @@ export default function About() {
           className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-align-fix"
           {...fadeInUp}
         >
-          Junior Software Engineer with Ruby on Rails backend development
-          experience at iFarmer Asia, currently working on digital supply chain
-          solutions by building a app called &ldquo;Supplier Connect&rdquo;. Former
-          Undergraduate Teaching Assistant at BRAC University, mentoring 250+
-          students through academic consultations in programming and statistics
-          courses. I aim to apply industry-level software engineering
-          expertise in academic settings as a contractual lecturer, bridging
-          practical development experience with computer science education.
+          Junior Backend Engineer at iFarmer Asia, building and maintaining
+          production systems across the company&apos;s app ecosystem with{" "}
+          <span className="font-medium text-gray-800 dark:text-white">
+            Ruby on Rails, PostgreSQL, Redis, and AWS
+          </span>{" "}
+          — including Supplier Connect, a supply-chain platform now live on
+          the Google Play Store. Former Undergraduate Teaching Assistant at
+          BRAC University, mentoring 250+ students through academic
+          consultations in programming and statistics. Alongside backend
+          work, I&apos;m actively learning Machine Learning and AI, building
+          up hands-on skills in that space.
         </motion.p>
       </motion.div>
 
@@ -106,7 +112,7 @@ export default function About() {
                     <p className="text-primary">iFarmer.asia</p>
                   </div>
                   <span className="inline-block sm:mt-0 px-3 py-1 bg-primary/10 text-primary dark:text-primary-light rounded-full text-sm font-medium">
-                    Sep 2024 - Present
+                    Sep 2025 - Present
                   </span>
                 </div>
 
@@ -119,7 +125,8 @@ export default function About() {
                       Developing scalable backend systems using{" "}
                       <span className="font-medium text-gray-800 dark:text-white">
                         Ruby on Rails and PostgreSQL
-                      </span>
+                      </span>{" "}
+                      across multiple production apps
                     </p>
                   </div>
                   <div className="flex items-start">
@@ -136,8 +143,39 @@ export default function About() {
                       <div className="h-2 w-2 rounded-full bg-primary" />
                     </div>
                     <p className="ml-3 text-gray-600 dark:text-gray-300">
-                      Optimizing database queries and maintaining system
-                      performance
+                      Optimizing database queries, designing schemas, and
+                      running scheduled jobs to keep systems performant at
+                      scale
+                    </p>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0 mt-1">
+                      <div className="h-2 w-2 rounded-full bg-primary" />
+                    </div>
+                    <p className="ml-3 text-gray-600 dark:text-gray-300">
+                      Using{" "}
+                      <span className="font-medium text-gray-800 dark:text-white">
+                        Redis
+                      </span>{" "}
+                      for caching and background job processing to keep
+                      high-volume, calculation-heavy features like the
+                      fintech incentive engine fast and reliable
+                    </p>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0 mt-1">
+                      <div className="h-2 w-2 rounded-full bg-primary" />
+                    </div>
+                    <p className="ml-3 text-gray-600 dark:text-gray-300">
+                      Configuring{" "}
+                      <span className="font-medium text-gray-800 dark:text-white">
+                        Nginx
+                      </span>{" "}
+                      and deploying and maintaining services on{" "}
+                      <span className="font-medium text-gray-800 dark:text-white">
+                        AWS
+                      </span>{" "}
+                      to keep production apps reliable and available
                     </p>
                   </div>
                 </div>
@@ -148,6 +186,11 @@ export default function About() {
                     "Ruby on Rails",
                     "PostgreSQL",
                     "REST APIs",
+                    "Nginx",
+                    "Redis",
+                    "Cron Jobs",
+                    "Database Design",
+                    "AWS",
                     "Backend Development",
                   ].map((tech, index) => (
                     <span
@@ -157,6 +200,52 @@ export default function About() {
                       {tech}
                     </span>
                   ))}
+                </div>
+
+                {/* Products built */}
+                <div className="mt-8 pt-6 border-t border-gray-100 dark:border-gray-700">
+                  <h4 className="font-semibold text-gray-800 dark:text-white mb-4">
+                    Features I&apos;ve built at iFarmer
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {experienceApps.map((app) => (
+                      <div
+                        key={app.name}
+                        className="flex gap-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-900/40 border border-gray-100 dark:border-gray-700"
+                      >
+                        <div className="relative h-12 w-12 flex-shrink-0 rounded-lg overflow-hidden bg-white dark:bg-gray-800">
+                          <Image
+                            src={app.image}
+                            alt={app.name}
+                            fill
+                            className="object-cover"
+                            sizes="48px"
+                          />
+                        </div>
+                        <div className="min-w-0">
+                          <div className="flex items-center gap-2">
+                            <p className="font-medium text-sm text-gray-800 dark:text-white truncate">
+                              {app.name}
+                            </p>
+                            {app.playStoreLink && (
+                              <a
+                                href={app.playStoreLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-primary hover:text-primary/80 flex-shrink-0"
+                                aria-label={`${app.name} on Google Play`}
+                              >
+                                <FaGooglePlay className="h-3.5 w-3.5" />
+                              </a>
+                            )}
+                          </div>
+                          <p className="text-xs text-gray-600 dark:text-gray-300 mt-1">
+                            {app.description}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </motion.div>

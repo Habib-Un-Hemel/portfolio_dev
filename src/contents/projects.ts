@@ -2,6 +2,16 @@ import { Project } from "@/types";
 
 export const projects: Project[] = [
   {
+    title: "Supplier Connect",
+    description:
+      "A public-facing supply chain platform for suppliers at iFarmer.asia, digitizing manual workflows through a mobile app now live on the Google Play Store. Owned roughly 80-90% of backend development, building 60+ APIs from scratch across the full software development lifecycle - design, iteration, testing, and training.",
+    technologies: ["Ruby on Rails", "PostgreSQL", "REST APIs"],
+    githubLink: "",
+    demoLink: "https://play.google.com/store/apps/details?id=asia.ifarmer.supplier&pcampaignid=web_share",
+    image: "/projects/supplier_connect_2.png",
+    categories: ["Real-World Projects","Featured Projects"],
+  },
+  {
     title: "Auto Bazar ",
     description:
       "AutoBazar is a full stack bike marketplace, offering AI-guided bike listings, real-time availability, and a seamless buy, sell, or rent experience",
@@ -43,7 +53,7 @@ export const projects: Project[] = [
     githubLink: "https://github.com/Habib-Un-Hemel/portfolio_dev",
     demoLink: "https://demo.com",
     image: "/projects/portfolio.png",
-    categories: ["Featured Projects", "Web Development"],
+    categories: [ "Web Development"],
   },
   {
     title: "Triajao: Travel Hotel Management System",
@@ -95,16 +105,6 @@ export const projects: Project[] = [
     demoLink: "https://github.com/Habib-Un-Hemel",
     image: "/projects/farm.png",
     categories: ["Web Development"],
-  },
-  {
-    title: "Supplier Connect",
-    description:
-      "A public-facing supply chain platform for suppliers at iFarmer.asia, digitizing manual workflows through a mobile app now live on the Google Play Store. Owned roughly 80-90% of backend development, building 60+ APIs from scratch across the full software development lifecycle - design, iteration, testing, and training.",
-    technologies: ["Ruby on Rails", "PostgreSQL", "REST APIs"],
-    githubLink: "",
-    demoLink: "https://play.google.com/store/apps/details?id=asia.ifarmer.supplier&pcampaignid=web_share",
-    image: "/projects/supplier_connect_2.png",
-    categories: ["Real-World Projects"],
   },
   {
     title: "Line Follower Robot",

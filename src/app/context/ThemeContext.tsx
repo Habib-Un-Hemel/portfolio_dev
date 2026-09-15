@@ -1,5 +1,6 @@
 "use client"; // This is a client component but by default it is a server component in Next.js
 import React, { createContext, useState, useEffect, useContext } from "react";
+import Loader from "../components/Loader";
 
 type Theme = "light" | "dark";
 
@@ -12,7 +13,7 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setThemeState] = useState<Theme>("light");
+  const [theme, setThemeState] = useState<Theme>("dark");
   const [mounted, setMounted] = useState(false);
 
   // Update the theme based on local storage
@@ -27,14 +28,10 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     setTheme(theme === "light" ? "dark" : "light");
   };
 
-  // Initialize the theme based on local storage
+  // Initialize the theme based on local storage, defaulting to dark
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") as Theme | null;
-    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-      .matches
-      ? "dark"
-      : "light";
-    const initialTheme = savedTheme || systemTheme;
+    const initialTheme = savedTheme || "dark";
     setThemeState(initialTheme);
 
     document.documentElement.classList.toggle("dark", initialTheme === "dark");
@@ -43,7 +40,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 
   // Prevent flash of wrong theme
   if (!mounted) {
-    return null;
+    return <Loader />;
   }
 
   return (

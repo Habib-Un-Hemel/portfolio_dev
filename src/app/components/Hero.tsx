@@ -67,11 +67,11 @@ const Hero = () => {
           </p>
 
           <p className="text-base md:text-lg text-gray-600 dark:text-gray-400 mb-6 text-align-fix">
-            Backend Software Engineer experienced in Ruby on Rails development,
-            coupled with a background in academic mentorship as a former
-            Teaching Assistant. Interested in applying this dual expertise in a
-            contractual lecturer role to enhance student learning with
-            real-world software engineering practices.
+            Outside of code, you&apos;ll find me on the field or at the gym.
+            Sports keep me grounded. One year into my first job as an
+            engineer, I&apos;ve learned more about building real systems
+            than any classroom taught me. Being an INTP means I think in
+            systems and love figuring out how things work.
           </p>
 
           <p className="font-medium mb-3">Connect with me here! ⬇️</p>

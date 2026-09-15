@@ -17,7 +17,7 @@ export default function Projects() {
   }, []);
 
   const [activeCategory, setActiveCategory] =
-    useState<string>("Real-World Projects");
+    useState<string>("Featured Projects");
 
   const filteredProjects =
     activeCategory === "All"
