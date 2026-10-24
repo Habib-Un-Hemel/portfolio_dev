@@ -39,14 +39,14 @@ export default function Projects() {
 
         {/* Tab Navigation */}
         <div className="flex justify-center mb-12">
-          <div className="inline-flex bg-gray-100 dark:bg-gray-800 p-1 rounded-lg flex-wrap justify-center">
+          <div className="inline-flex bg-gray-100 dark:bg-white/5 p-1 rounded-lg flex-wrap justify-center">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-all m-1 ${
                   activeCategory === category
-                    ? "bg-white dark:bg-gray-700 shadow-sm text-primary dark:text-primary-300"
+                    ? "bg-white dark:bg-white/10 shadow-sm text-primary dark:text-primary-300"
                     : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
                 }`}
               >
@@ -65,11 +65,11 @@ export default function Projects() {
           {filteredProjects.map((project) => (
             <motion.article
               key={project.title}
-              className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow duration-300"
+              className="glass-card overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               variants={fadeInUp}
               {...cardHoverSmall}
             >
-              <div className="relative h-56 w-full overflow-hidden bg-gray-100 dark:bg-gray-900">
+              <div className="relative h-56 w-full overflow-hidden bg-gray-100 dark:bg-white/[0.03]">
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -117,7 +117,7 @@ export default function Projects() {
                 </motion.div>
 
                 <motion.div
-                  className="flex gap-4 border-t border-gray-100 dark:border-gray-700 pt-4"
+                  className="flex gap-4 border-t border-gray-100 dark:border-white/10 pt-4"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.4 }}

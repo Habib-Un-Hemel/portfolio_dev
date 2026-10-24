@@ -156,7 +156,7 @@ export default function ContactSection() {
 
         {/* Contact Form */}
         <motion.div
-          className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700"
+          className="glass-card p-8"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -176,7 +176,7 @@ export default function ContactSection() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-white/10 bg-white dark:bg-white/5 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
               />
             </div>
 
@@ -194,7 +194,7 @@ export default function ContactSection() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-white/10 bg-white dark:bg-white/5 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
               />
             </div>
 
@@ -212,7 +212,7 @@ export default function ContactSection() {
                 onChange={handleChange}
                 required
                 rows={5}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-white/10 bg-white dark:bg-white/5 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
               />
             </div>
 

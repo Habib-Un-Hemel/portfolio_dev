@@ -2,11 +2,12 @@
 
 @theme {
   --color-primary: #14b8a6;
-  --color-secondary: #4b5563;
-  --color-dark: #1F2937;
+  --color-primary-light: #5eead4;
+  --color-secondary: #6b7280;
+  --color-dark: #0a0b0f;
   --color-light: #F9FAFB;
   --color-text: #000000;
-  --color-bg: #f0f2f5;
+  --color-bg: #f7f8fa;
 
   --font-sans: 'Inter', sans-serif;
 
@@ -28,23 +29,51 @@ a {
   .container {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
-  
+
   .btn {
     @apply px-4 py-2 rounded-md font-medium transition-colors duration-200;
   }
-  
+
   .btn-primary {
     @apply bg-primary text-white hover:bg-primary/90;
   }
-  
+
   .btn-secondary {
     @apply bg-secondary text-white hover:bg-secondary/90;
   }
-  
+
   .section-title {
     @apply text-3xl font-bold mb-8 text-center;
   }
-} 
+
+  /* Frosted-glass surface used across cards, pills and panels */
+  .glass {
+    @apply bg-white dark:bg-white/[0.04] backdrop-blur-sm border border-gray-100 dark:border-white/10;
+  }
+
+  .glass-card {
+    @apply bg-white dark:bg-white/[0.04] backdrop-blur-sm border border-gray-100 dark:border-white/10 rounded-2xl shadow-lg dark:shadow-black/40;
+  }
+
+  /* Small uppercase, letter-spaced monospace label, matching status/meta pills */
+  .label-tag {
+    @apply font-mono text-[11px] uppercase tracking-[0.2em] text-secondary dark:text-white/50;
+  }
+
+  /* Pulsing status dot, e.g. "Open to work" */
+  .pulse-dot {
+    @apply relative inline-flex h-2 w-2 rounded-full bg-primary;
+  }
+
+  .pulse-dot::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: var(--color-primary);
+    animation: pulseDot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
 
 @keyframes fadeIn {
   from {
@@ -66,6 +95,78 @@ a {
   }
 }
 
+@keyframes pulseDot {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  75%, 100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+@keyframes driftGlow {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(2%, -3%) scale(1.05);
+  }
+}
+
+/* Fixed decorative backdrop: soft glows + fine grain, sits behind all content */
+.bg-decor {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bg-decor::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.5) 0.5px, transparent 0.5px);
+  background-size: 3px 3px;
+  transition: opacity 0.3s ease;
+}
+
+.dark .bg-decor::before {
+  opacity: 0.05;
+}
+
+.bg-decor .glow-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: driftGlow 16s ease-in-out infinite;
+}
+
+.dark .bg-decor .glow-orb {
+  opacity: 0.22;
+}
+
+.bg-decor .glow-orb-1 {
+  top: -10%;
+  left: -5%;
+  width: 36rem;
+  height: 36rem;
+  background: var(--color-primary);
+}
+
+.bg-decor .glow-orb-2 {
+  bottom: -15%;
+  right: -10%;
+  width: 30rem;
+  height: 30rem;
+  background: #7c6ee6;
+  animation-delay: -8s;
+}
 
 .text-align-fix {
   text-align: justify;

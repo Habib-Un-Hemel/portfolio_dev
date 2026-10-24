@@ -52,7 +52,7 @@ export default function Skills() {
         >
           {/* Programming Languages */}
           <motion.div
-            className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700"
+            className="glass-card p-6"
             variants={fadeInUp}
             {...cardHover}
           >
@@ -93,7 +93,7 @@ export default function Skills() {
 
           {/* Frontend Development */}
           <motion.div
-            className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700"
+            className="glass-card p-6"
             variants={fadeInUp}
             {...cardHover}
           >
@@ -130,7 +130,7 @@ export default function Skills() {
 
           {/* Backend Development */}
           <motion.div
-            className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700"
+            className="glass-card p-6"
             variants={fadeInUp}
             {...cardHover}
           >
@@ -172,7 +172,7 @@ export default function Skills() {
 
           {/* Databases */}
           <motion.div
-            className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700"
+            className="glass-card p-6"
             variants={fadeInUp}
             {...cardHover}
           >
@@ -209,7 +209,7 @@ export default function Skills() {
 
           {/* AI/ML */}
           <motion.div
-            className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700"
+            className="glass-card p-6"
             variants={fadeInUp}
             {...cardHover}
           >
@@ -249,7 +249,7 @@ export default function Skills() {
 
           {/* Tools */}
           <motion.div
-            className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700"
+            className="glass-card p-6"
             variants={fadeInUp}
             {...cardHover}
           >

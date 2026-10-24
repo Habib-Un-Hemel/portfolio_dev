@@ -32,6 +32,16 @@ const Hero = () => {
           {...fadeInLeft}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
+          <motion.div
+            className="glass label-tag inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-5"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <span className="pulse-dot" />
+            Junior Software Engineer @ iFarmer.asia
+          </motion.div>
+
           <h1 className="text-4xl md:text-6xl font-bold mb-4 flex items-center gap-2 flex-wrap">
             Hi, I&apos;m
             <motion.span
@@ -74,29 +84,29 @@ const Hero = () => {
             systems and love figuring out how things work.
           </p>
 
-          <p className="font-medium mb-3">Connect with me here! ⬇️</p>
-          <div className="flex justify-center md:justify-start space-x-4 mb-6">
+          <p className="label-tag mb-3">Connect with me here</p>
+          <div className="flex justify-center md:justify-start gap-3 mb-6">
             <Link
               href="https://github.com/Habib-Un-Hemel"
-              className="text-3xl hover:text-primary transition duration-300"
+              className="glass flex h-11 w-11 items-center justify-center rounded-full text-lg hover:text-primary hover:border-primary/40 transition-colors"
             >
               <FaGithub />
             </Link>
             <Link
               href="https://www.linkedin.com/in/habibun-nabi-hemel/"
-              className="text-3xl hover:text-primary transition duration-300"
+              className="glass flex h-11 w-11 items-center justify-center rounded-full text-lg hover:text-primary hover:border-primary/40 transition-colors"
             >
               <FaLinkedin />
             </Link>
             <Link
               href="https://x.com/Habib33hemel"
-              className="text-3xl hover:text-primary transition duration-300"
+              className="glass flex h-11 w-11 items-center justify-center rounded-full text-lg hover:text-primary hover:border-primary/40 transition-colors"
             >
               <FaTwitter />
             </Link>
             <Link
               href="mailto:habibun33hemel@gmail.com"
-              className="text-3xl hover:text-primary transition duration-300"
+              className="glass flex h-11 w-11 items-center justify-center rounded-full text-lg hover:text-primary hover:border-primary/40 transition-colors"
             >
               <FaMailBulk />
             </Link>
@@ -105,7 +115,7 @@ const Hero = () => {
           <div className="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
             <Link
               href="#projects"
-              className="bg-teal-800 text-white px-8 py-3 rounded-lg hover:bg-primary/80 transition-colors w-full md:w-auto text-center"
+              className="glass hover:border-primary/40 hover:text-primary px-8 py-3 rounded-full transition-colors w-full md:w-auto text-center font-medium"
             >
               View Projects
             </Link>
@@ -118,7 +128,7 @@ const Hero = () => {
             <Link
               // href="https://drive.google.com/file/d/14jaFTRxzspkJAS1uotYH_51Ec8hq9f5U/view?usp=sharing"
               href="https://drive.google.com/drive/folders/1-EDuIhN8IDAl3Tq_he0DxPLYK5-qvPZp?usp=sharing"
-              className=" bg-primary text-white hover:bg-teal-900 px-8 py-3 rounded-lg transition-colors w-full md:w-auto text-center font-bold shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+              className="bg-primary text-white hover:bg-primary/90 px-8 py-3 rounded-full transition-colors w-full md:w-auto text-center font-bold shadow-lg shadow-primary/20 hover:shadow-primary/30 flex items-center justify-center gap-2"
             >
               Download CV
               <FaDownload className="text-sm" />
@@ -126,20 +136,30 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Right Side: Circular Image (will appear first on mobile) */}
+        {/* Right Side: Image (will appear first on mobile) */}
         <motion.div
           className="md:w-1/2 flex justify-center"
           {...scaleIn}
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
         >
-          <Image
-            src="/formal_main.png"
-            alt="Profile"
-            width={300}
-            height={300}
-            className="rounded-full object-cover ring-4 ring-primary shadow-lg h-72 w-72"
-            quality={100}
-          />
+          <div className="relative">
+            <div className="absolute -inset-6 rounded-[2.5rem] bg-primary/20 blur-3xl -z-10" />
+            <div className="glass relative rounded-[2rem] p-3 border-dashed">
+              {/* Corner marks */}
+              <span className="absolute -top-1.5 -left-1.5 h-3 w-3 border-t-2 border-l-2 border-primary/60 rounded-tl-sm" />
+              <span className="absolute -top-1.5 -right-1.5 h-3 w-3 border-t-2 border-r-2 border-primary/60 rounded-tr-sm" />
+              <span className="absolute -bottom-1.5 -left-1.5 h-3 w-3 border-b-2 border-l-2 border-primary/60 rounded-bl-sm" />
+              <span className="absolute -bottom-1.5 -right-1.5 h-3 w-3 border-b-2 border-r-2 border-primary/60 rounded-br-sm" />
+              <Image
+                src="/formal_main.png"
+                alt="Profile"
+                width={300}
+                height={300}
+                className="rounded-[1.6rem] object-cover h-72 w-72"
+                quality={100}
+              />
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

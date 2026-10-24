@@ -66,7 +66,7 @@ export default function About() {
             className="flex items-center justify-center mb-10"
             {...fadeInUp}
           >
-            <div className="flex items-center bg-white dark:bg-gray-800 px-6 py-3 rounded-full shadow-md border border-gray-100 dark:border-gray-700">
+            <div className="flex items-center glass px-6 py-3 rounded-full shadow-md">
               <FaBriefcase className="text-primary mr-3" />
               <span className="font-semibold text-gray-800 dark:text-white">
                 Professional Experience
@@ -95,7 +95,7 @@ export default function About() {
               </div>
 
               {/* Position card */}
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 transform transition-all duration-300 group-hover:-translate-y-1">
+              <div className="glass-card p-6 transform transition-all duration-300 group-hover:-translate-y-1">
                 <div className="absolute top-0 right-0 bg-primary text-white px-3 py-1 text-xs font-bold rounded-bl-lg">
                   CURRENT
                 </div>
@@ -203,7 +203,7 @@ export default function About() {
                 </div>
 
                 {/* Products built */}
-                <div className="mt-8 pt-6 border-t border-gray-100 dark:border-gray-700">
+                <div className="mt-8 pt-6 border-t border-gray-100 dark:border-white/10">
                   <h4 className="font-semibold text-gray-800 dark:text-white mb-4">
                     Features I&apos;ve built at iFarmer
                   </h4>
@@ -211,9 +211,9 @@ export default function About() {
                     {experienceApps.map((app) => (
                       <div
                         key={app.name}
-                        className="flex gap-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-900/40 border border-gray-100 dark:border-gray-700"
+                        className="flex gap-3 p-3 rounded-lg bg-gray-50 dark:bg-white/[0.03] border border-gray-100 dark:border-white/10"
                       >
-                        <div className="relative h-12 w-12 flex-shrink-0 rounded-lg overflow-hidden bg-white dark:bg-gray-800">
+                        <div className="relative h-12 w-12 flex-shrink-0 rounded-lg overflow-hidden bg-white dark:bg-white/5">
                           <Image
                             src={app.image}
                             alt={app.name}
@@ -262,7 +262,7 @@ export default function About() {
               </div>
 
               {/* Position card */}
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 transform transition-all duration-300 group-hover:-translate-y-1">
+              <div className="glass-card p-6 transform transition-all duration-300 group-hover:-translate-y-1">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
                   <div>
                     <h3 className="text-xl font-bold text-gray-800 dark:text-white">
@@ -327,7 +327,7 @@ export default function About() {
               </div>
 
               {/* Position card */}
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 transform transition-all duration-300 group-hover:-translate-y-1">
+              <div className="glass-card p-6 transform transition-all duration-300 group-hover:-translate-y-1">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
                   <div>
                     <h3 className="text-xl font-bold text-gray-800 dark:text-white">
@@ -384,7 +384,7 @@ export default function About() {
               className="relative pl-20 pt-6 text-center"
               {...fadeInUp}
             >
-              <div className="inline-flex items-center text-sm text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 px-4 py-2 rounded-full">
+              <div className="inline-flex items-center text-sm text-gray-500 dark:text-gray-400 glass px-4 py-2 rounded-full">
                 <FaBriefcase className="mr-2" />
                 Building expertise in both software development and education
               </div>
@@ -411,7 +411,7 @@ export default function About() {
         >
           {/* BRAC University */}
           <motion.div
-            className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 relative overflow-hidden"
+            className="glass-card p-6 relative overflow-hidden"
             variants={fadeInUp}
             {...cardHoverSmall}
           >
@@ -472,7 +472,7 @@ export default function About() {
 
           {/* DRMC */}
           <motion.div
-            className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700"
+            className="glass-card p-6"
             variants={fadeInUp}
             {...cardHoverSmall}
           >

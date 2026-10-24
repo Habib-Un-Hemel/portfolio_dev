@@ -28,8 +28,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#f0f2f5] transition-colors dark:bg-[#1f2937] dark:text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#f7f8fa] transition-colors dark:bg-[#0a0b0f] dark:text-white`}
       >
+        <div className="bg-decor" aria-hidden="true">
+          <div className="glow-orb glow-orb-1" />
+          <div className="glow-orb glow-orb-2" />
+        </div>
         <ThemeProvider>
           <Navbar />
           <main className="min-h-screen pt-24">{children}</main>

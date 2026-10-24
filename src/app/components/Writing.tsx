@@ -37,11 +37,11 @@ export default function Writing() {
               href={post.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="block bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow duration-300"
+              className="block glass-card overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               variants={fadeInUp}
               {...cardHoverSmall}
             >
-              <div className="relative aspect-[16/9] w-full overflow-hidden bg-gray-100 dark:bg-gray-900">
+              <div className="relative aspect-[16/9] w-full overflow-hidden bg-gray-100 dark:bg-white/[0.03]">
                 <Image
                   src={post.image}
                   alt={post.title}

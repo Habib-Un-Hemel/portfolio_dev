@@ -145,14 +145,14 @@ export default function Highlights() {
 
         {/* Tab Navigation */}
         <div className="flex justify-center mb-12">
-          <div className="inline-flex bg-gray-100 dark:bg-gray-800 p-1 rounded-lg flex-wrap justify-center">
+          <div className="inline-flex bg-gray-100 dark:bg-white/5 p-1 rounded-lg flex-wrap justify-center">
             {sections.map((section) => (
               <button
                 key={section.id}
                 onClick={() => setActiveSection(section.id)}
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-all m-1 ${
                   activeSection === section.id
-                    ? "bg-white dark:bg-gray-700 shadow-sm text-primary dark:text-primary-300"
+                    ? "bg-white dark:bg-white/10 shadow-sm text-primary dark:text-primary-300"
                     : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
                 }`}
               >
@@ -184,7 +184,7 @@ export default function Highlights() {
               {section.data.map((item, index) => (
                 <motion.article
                   key={index}
-                  className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow duration-300 h-full"
+                  className="glass-card overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full"
                   variants={fadeInUp}
                   {...cardHoverSmall}
                 >
