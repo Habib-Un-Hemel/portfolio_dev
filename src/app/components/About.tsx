@@ -5,13 +5,14 @@ import {
   FaStar,
   FaAward,
   FaFlask,
-  FaSchool,
   FaUsers,
   FaUniversity,
   FaChalkboardTeacher,
   FaBook,
   FaBriefcase,
   FaGooglePlay,
+  FaBrain,
+  FaLaptopCode,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 import {
@@ -31,48 +32,66 @@ export default function About() {
         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
           About Me
         </h1>
-        <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
-        <motion.p
-          className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-align-fix mb-4"
-          {...fadeInUp}
-        >
-          I&apos;m a Computer Science graduate from BRAC University, where I
-          finished with highest distinction (CGPA 3.85), and I now work as a{" "}
-          <span className="font-medium text-gray-800 dark:text-white">
-            Junior Software Engineer (Backend) at iFarmer.asia
-          </span>
-          , building and maintaining production systems — including{" "}
-          <span className="font-medium text-gray-800 dark:text-white">
-            Ruby on Rails, PostgreSQL, Redis, and AWS
-          </span>{" "}
-          — across the company&apos;s app ecosystem, such as Supplier
-          Connect, a supply-chain platform now live on the Google Play
-          Store.
-        </motion.p>
+        <div className="w-20 h-1 bg-primary mx-auto mb-10"></div>
 
-        <motion.p
-          className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-align-fix mb-4"
-          {...fadeInUp}
-          transition={{ delay: 0.1 }}
-        >
-          My research is on machine unlearning: making a trained neural
-          network forget specific data without retraining it from scratch.
-          I&apos;m also drawn to deep learning, privacy-preserving AI, and
-          LLMs.
-        </motion.p>
+        <div className="max-w-3xl mx-auto space-y-5 text-left">
+          <motion.div
+            className="glass-card flex items-start gap-4 p-5 sm:p-6"
+            {...fadeInUp}
+          >
+            <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <FaUniversity className="h-5 w-5" />
+            </div>
+            <p className="text-lg text-gray-600 dark:text-gray-300 text-align-fix">
+              I&apos;m a Computer Science graduate from BRAC University, where I
+              finished with highest distinction (CGPA 3.85), and I now work as a{" "}
+              <span className="font-medium text-gray-800 dark:text-white">
+                Junior Software Engineer (Backend) at iFarmer.asia
+              </span>
+              , building and maintaining production systems — including{" "}
+              <span className="font-medium text-gray-800 dark:text-white">
+                Ruby on Rails, PostgreSQL, Redis, and AWS
+              </span>{" "}
+              — across the company&apos;s app ecosystem, such as Supplier
+              Connect, a supply-chain platform now live on the Google Play
+              Store.
+            </p>
+          </motion.div>
 
-        <motion.p
-          className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-align-fix"
-          {...fadeInUp}
-          transition={{ delay: 0.2 }}
-        >
-          Along the way I&apos;ve built FutureFit, a machine learning tool
-          that predicts job opportunities and salaries for BSc students,
-          alongside projects like Auto Bazar and Rentology. I&apos;ve also
-          served as an Undergraduate Teaching Assistant, mentoring 250+
-          students across Object-Oriented Programming, Statistics, and
-          Physics.
-        </motion.p>
+          <motion.div
+            className="glass-card flex items-start gap-4 p-5 sm:p-6"
+            {...fadeInUp}
+            transition={{ delay: 0.1 }}
+          >
+            <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <FaBrain className="h-5 w-5" />
+            </div>
+            <p className="text-lg text-gray-600 dark:text-gray-300 text-align-fix">
+              My research is on machine unlearning: making a trained neural
+              network forget specific data without retraining it from scratch.
+              I&apos;m also drawn to deep learning, privacy-preserving AI, and
+              LLMs.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="glass-card flex items-start gap-4 p-5 sm:p-6"
+            {...fadeInUp}
+            transition={{ delay: 0.2 }}
+          >
+            <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <FaLaptopCode className="h-5 w-5" />
+            </div>
+            <p className="text-lg text-gray-600 dark:text-gray-300 text-align-fix">
+              Along the way I&apos;ve built FutureFit, a machine learning tool
+              that predicts job opportunities and salaries for BSc students,
+              alongside projects like Auto Bazar and Rentology. I&apos;ve also
+              served as an Undergraduate Teaching Assistant, mentoring 250+
+              students across Object-Oriented Programming, Statistics, and
+              Physics.
+            </p>
+          </motion.div>
+        </div>
       </motion.div>
 
       {/* Experience Section */}
@@ -125,16 +144,27 @@ export default function About() {
                   CURRENT
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-800 dark:text-white">
-                      Junior Software Engineer (Backend)
-                    </h3>
-                    <p className="text-gray-500 dark:text-gray-400">
-                      <span className="font-medium">
-                        Agricultural Technology Solutions
-                      </span>
-                    </p>
-                    <p className="text-primary">iFarmer.asia</p>
+                  <div className="flex items-start gap-4">
+                    <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-lg ring-1 ring-black/5">
+                      <Image
+                        src="/logos/ifarmer.png"
+                        alt="iFarmer.asia logo"
+                        fill
+                        className="object-cover"
+                        sizes="64px"
+                      />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-800 dark:text-white">
+                        Junior Software Engineer (Backend)
+                      </h3>
+                      <p className="text-gray-500 dark:text-gray-400">
+                        <span className="font-medium">
+                          Agricultural Technology Solutions
+                        </span>
+                      </p>
+                      <p className="text-primary">iFarmer.asia</p>
+                    </div>
                   </div>
                   <span className="inline-block sm:mt-0 px-3 py-1 bg-primary/10 text-primary dark:text-primary-light rounded-full text-sm font-medium">
                     Sep 2025 - Present
@@ -169,8 +199,7 @@ export default function About() {
                     </div>
                     <p className="ml-3 text-gray-600 dark:text-gray-300">
                       Optimizing database queries, designing schemas, and
-                      running scheduled jobs to keep systems performant at
-                      scale
+                      running scheduled jobs to keep systems performant at scale
                     </p>
                   </div>
                   <div className="flex items-start">
@@ -183,8 +212,8 @@ export default function About() {
                         Redis
                       </span>{" "}
                       for caching and background job processing to keep
-                      high-volume, calculation-heavy features like the
-                      fintech incentive engine fast and reliable
+                      high-volume, calculation-heavy features like the fintech
+                      incentive engine fast and reliable
                     </p>
                   </div>
                   <div className="flex items-start">
@@ -289,16 +318,29 @@ export default function About() {
               {/* Position card */}
               <div className="glass-card p-6 transform transition-all duration-300 group-hover:-translate-y-1">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-800 dark:text-white">
-                      Undergrad Teaching Assistant
-                    </h3>
-                    <p className="text-gray-500 dark:text-gray-400">
-                      <span className="font-medium">
-                        Department of Computer Science & Engineering
-                      </span>
-                    </p>
-                    <p className="text-gray-400">BRAC University</p>
+                  <div className="flex items-start gap-4">
+                    <div className="h-16 w-16 flex-shrink-0 overflow-hidden rounded-lg bg-white p-2 ring-1 ring-black/5">
+                      <div className="relative h-full w-full">
+                        <Image
+                          src="/logos/bracu.png"
+                          alt="BRAC University logo"
+                          fill
+                          className="object-contain"
+                          sizes="64px"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-800 dark:text-white">
+                        Undergrad Teaching Assistant
+                      </h3>
+                      <p className="text-gray-500 dark:text-gray-400">
+                        <span className="font-medium">
+                          Department of Computer Science & Engineering
+                        </span>
+                      </p>
+                      <p className="text-gray-400">BRAC University</p>
+                    </div>
                   </div>
                   <span className="inline-block sm:mt-0 px-3 py-1 bg-teal-500/10 text-gray-400 dark:text-gray-400 rounded-full text-sm font-medium">
                     June 2025 - Sep 2025
@@ -354,16 +396,29 @@ export default function About() {
               {/* Position card */}
               <div className="glass-card p-6 transform transition-all duration-300 group-hover:-translate-y-1">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-800 dark:text-white">
-                      Undergrad Teaching Assistant
-                    </h3>
-                    <p className="text-gray-500 dark:text-gray-400">
-                      <span className="font-medium">
-                        Department of Mathematics & Natural Sciences
-                      </span>
-                    </p>
-                    <p className="text-gray-400">BRAC University</p>
+                  <div className="flex items-start gap-4">
+                    <div className="h-16 w-16 flex-shrink-0 overflow-hidden rounded-lg bg-white p-2 ring-1 ring-black/5">
+                      <div className="relative h-full w-full">
+                        <Image
+                          src="/logos/bracu.png"
+                          alt="BRAC University logo"
+                          fill
+                          className="object-contain"
+                          sizes="64px"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-800 dark:text-white">
+                        Undergrad Teaching Assistant
+                      </h3>
+                      <p className="text-gray-500 dark:text-gray-400">
+                        <span className="font-medium">
+                          Department of Mathematics & Natural Sciences
+                        </span>
+                      </p>
+                      <p className="text-gray-400">BRAC University</p>
+                    </div>
                   </div>
                   <span className="inline-block mt-1 sm:mt-0 px-3 py-1 bg-gray-400/10 text-gray-600 dark:text-gray-400 rounded-full text-sm font-medium">
                     May 2024 - May 2025
@@ -445,8 +500,16 @@ export default function About() {
               
             </div> */}
             <div className="flex items-start">
-              <div className="p-3 rounded-full bg-primary/10 text-primary mr-4">
-                <FaUniversity className="h-6 w-6" />
+              <div className="h-16 w-16 flex-shrink-0 overflow-hidden rounded-lg bg-white p-2 ring-1 ring-black/5 mr-4">
+                <div className="relative h-full w-full">
+                  <Image
+                    src="/logos/bracu.png"
+                    alt="BRAC University logo"
+                    fill
+                    className="object-contain"
+                    sizes="64px"
+                  />
+                </div>
               </div>
               <div className="flex-1">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start">
@@ -503,8 +566,16 @@ export default function About() {
             {...cardHoverSmall}
           >
             <div className="flex items-start">
-              <div className="p-3 rounded-full bg-teal-500/10 text-teal-500 mr-4">
-                <FaSchool className="h-6 w-6" />
+              <div className="h-16 w-16 flex-shrink-0 overflow-hidden rounded-lg bg-white p-1.5 ring-1 ring-black/5 mr-4">
+                <div className="relative h-full w-full">
+                  <Image
+                    src="/logos/drmc.png"
+                    alt="Dhaka Residential Model College logo"
+                    fill
+                    className="object-contain"
+                    sizes="64px"
+                  />
+                </div>
               </div>
               <div className="flex-1">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start">

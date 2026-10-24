@@ -12,6 +12,7 @@ import { useTheme } from "../context/ThemeContext";
 const menuItems = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
+  { href: "#publications", label: "Publications" },
   { href: "#projects", label: "Projects" },
   { href: "#highlights", label: "Highlights" },
   { href: "#writing", label: "Writing" },
