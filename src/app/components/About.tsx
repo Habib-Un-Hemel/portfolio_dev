@@ -33,20 +33,45 @@ export default function About() {
         </h1>
         <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
         <motion.p
-          className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-align-fix"
+          className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-align-fix mb-4"
           {...fadeInUp}
         >
-          Junior Backend Engineer at iFarmer Asia, building and maintaining
-          production systems across the company&apos;s app ecosystem with{" "}
+          I&apos;m a Computer Science graduate from BRAC University, where I
+          finished with highest distinction (CGPA 3.85), and I now work as a{" "}
+          <span className="font-medium text-gray-800 dark:text-white">
+            Junior Software Engineer (Backend) at iFarmer.asia
+          </span>
+          , building and maintaining production systems — including{" "}
           <span className="font-medium text-gray-800 dark:text-white">
             Ruby on Rails, PostgreSQL, Redis, and AWS
           </span>{" "}
-          — including Supplier Connect, a supply-chain platform now live on
-          the Google Play Store. Former Undergraduate Teaching Assistant at
-          BRAC University, mentoring 250+ students through academic
-          consultations in programming and statistics. Alongside backend
-          work, I&apos;m actively learning Machine Learning and AI, building
-          up hands-on skills in that space.
+          — across the company&apos;s app ecosystem, such as Supplier
+          Connect, a supply-chain platform now live on the Google Play
+          Store.
+        </motion.p>
+
+        <motion.p
+          className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-align-fix mb-4"
+          {...fadeInUp}
+          transition={{ delay: 0.1 }}
+        >
+          My research is on machine unlearning: making a trained neural
+          network forget specific data without retraining it from scratch.
+          I&apos;m also drawn to deep learning, privacy-preserving AI, and
+          LLMs.
+        </motion.p>
+
+        <motion.p
+          className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-align-fix"
+          {...fadeInUp}
+          transition={{ delay: 0.2 }}
+        >
+          Along the way I&apos;ve built FutureFit, a machine learning tool
+          that predicts job opportunities and salaries for BSc students,
+          alongside projects like Auto Bazar and Rentology. I&apos;ve also
+          served as an Undergraduate Teaching Assistant, mentoring 250+
+          students across Object-Oriented Programming, Statistics, and
+          Physics.
         </motion.p>
       </motion.div>
 
@@ -407,7 +432,8 @@ export default function About() {
           className="max-w-4xl mx-auto space-y-8"
           variants={staggerContainer}
           initial="initial"
-          animate="animate"
+          whileInView="animate"
+          viewport={{ once: true, amount: 0.15 }}
         >
           {/* BRAC University */}
           <motion.div

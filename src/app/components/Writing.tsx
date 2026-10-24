@@ -29,7 +29,8 @@ export default function Writing() {
           className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"
           variants={staggerContainer}
           initial="initial"
-          animate="animate"
+          whileInView="animate"
+          viewport={{ once: true, amount: 0.15 }}
         >
           {writings.map((post) => (
             <motion.a

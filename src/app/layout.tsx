@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import { ThemeProvider } from "./context/ThemeContext";
 import Footer from "./components/Footer";
+import CursorSpotlight from "./components/CursorSpotlight";
+import MotionProvider from "./components/MotionProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,13 +36,14 @@ export default function RootLayout({
           <div className="glow-orb glow-orb-1" />
           <div className="glow-orb glow-orb-2" />
         </div>
-        <ThemeProvider>
-          <Navbar />
-          <main className="min-h-screen pt-24">{children}</main>
-          {/* <div>Hi</div> */}
-          {/* <div>Footer</div> */}
-          <Footer></Footer>
-        </ThemeProvider>
+        <CursorSpotlight />
+        <MotionProvider>
+          <ThemeProvider>
+            <Navbar />
+            <main className="min-h-screen pt-24">{children}</main>
+            <Footer></Footer>
+          </ThemeProvider>
+        </MotionProvider>
       </body>
     </html>
   );

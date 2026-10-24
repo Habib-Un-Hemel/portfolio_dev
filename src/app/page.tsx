@@ -5,6 +5,7 @@ import About from "./components/About";
 import Highlights from "./components/Highlights";
 import Writing from "./components/Writing";
 import ContactSection from "./components/Contact";
+import Marquee from "./components/Marquee";
 
 export default function Home() {
   return (
@@ -12,6 +13,8 @@ export default function Home() {
       <section id="home" className="scroll-mt-24">
         <Hero />
       </section>
+
+      <Marquee />
 
       <section id="about" className="scroll-mt-24">
         <About />

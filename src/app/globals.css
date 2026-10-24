@@ -73,6 +73,112 @@ a {
     background: var(--color-primary);
     animation: pulseDot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
+
+  /* Sweeping highlight that crosses a button once per hover */
+  .shine-btn {
+    @apply relative overflow-hidden isolate;
+  }
+
+  .shine-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      115deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.45) 50%,
+      transparent 70%
+    );
+    transform: translateX(-120%);
+    transition: transform 0.7s ease;
+  }
+
+  .shine-btn:hover::before {
+    transform: translateX(120%);
+  }
+}
+
+/* Cursor-tracking glow + lift, applied to glass surfaces on hover.
+   --spot-x / --spot-y are set from JS (CursorSpotlight) and default to center. */
+.glass,
+.glass-card {
+  position: relative;
+  isolation: isolate;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass::after,
+.glass-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(
+    220px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    rgba(20, 184, 166, 0.16),
+    transparent 70%
+  );
+}
+
+.glass:hover::after,
+.glass-card:hover::after {
+  opacity: 1;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(20, 184, 166, 0.35);
+}
+
+.dark .glass-card:hover {
+  box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(20, 184, 166, 0.12);
+}
+
+/* Horizontally running marquee strip */
+.marquee-row {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.marquee-row:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+
+  .bg-decor .glow-orb {
+    animation: none;
+  }
+
+  .pulse-dot::before {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes fadeIn {

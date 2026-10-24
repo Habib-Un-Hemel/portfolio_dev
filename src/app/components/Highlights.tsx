@@ -179,7 +179,8 @@ export default function Highlights() {
               className="grid grid-cols-1 md:grid-cols-3 gap-8"
               variants={staggerContainer}
               initial="initial"
-              animate="animate"
+              whileInView="animate"
+              viewport={{ once: true, amount: 0.15 }}
             >
               {section.data.map((item, index) => (
                 <motion.article
