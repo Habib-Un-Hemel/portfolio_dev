@@ -5,6 +5,8 @@ import About from "./components/About";
 import Highlights from "./components/Highlights";
 import Writing from "./components/Writing";
 import ContactSection from "./components/Contact";
+import Marquee from "./components/Marquee";
+import Publications from "./components/Publications";
 
 export default function Home() {
   return (
@@ -13,8 +15,14 @@ export default function Home() {
         <Hero />
       </section>
 
+      <Marquee />
+
       <section id="about" className="scroll-mt-24">
         <About />
+      </section>
+
+      <section id="publications" className="scroll-mt-24">
+        <Publications />
       </section>
 
       <section id="skills" className="scroll-mt-24">

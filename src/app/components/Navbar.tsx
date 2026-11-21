@@ -12,6 +12,7 @@ import { useTheme } from "../context/ThemeContext";
 const menuItems = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
+  { href: "#publications", label: "Publications" },
   { href: "#projects", label: "Projects" },
   { href: "#highlights", label: "Highlights" },
   { href: "#writing", label: "Writing" },
@@ -71,7 +72,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="fixed w-full bg-[#f0f2f5]/80 dark:bg-[#37514f]/80 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-700 shadow-sm transition-colors">
+    <nav className="fixed w-full bg-[#f7f8fa]/80 dark:bg-[#0a0b0f]/70 backdrop-blur-xl z-50 border-b border-gray-200 dark:border-white/10 shadow-sm dark:shadow-black/30 transition-colors">
       <div className="container max-w-7xl mx-auto px-4">
         {/* For Desktop menu items  */}
 
@@ -94,16 +95,21 @@ const Navbar = () => {
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className={`hover:text-primary transition-colors font-medium ${
-                    isActive ? "text-primary" : ""
+                  className={`relative px-1 py-1 transition-colors font-medium ${
+                    isActive
+                      ? "text-primary"
+                      : "hover:text-primary dark:text-white/80"
                   }`}
                 >
                   {item.label}
+                  {isActive && (
+                    <span className="absolute left-0 -bottom-1 h-[2px] w-full rounded-full bg-primary" />
+                  )}
                 </a>
               );
             })}
             <button
-              className="p-2 rounded-lg hover:bg-[#e0f0ef] dark:text-white dark:hover:bg-[#37514f] hover:text-primary transition-colors cursor-pointer"
+              className="p-2 rounded-lg hover:bg-[#e0f0ef] dark:text-white dark:hover:bg-white/10 hover:text-primary transition-colors cursor-pointer"
               onClick={toggleTheme}
             >
               {theme === "dark" ? (
@@ -117,7 +123,7 @@ const Navbar = () => {
           {/* mobile menu button */}
           <button
             onClick={toggleMobileMenu}
-            className="md:hidden p-2 rounded-lg hover:bg-[#e0f0ef] dark:hover:bg-[#37514f] transition-colors cursor-pointer"
+            className="md:hidden p-2 rounded-lg hover:bg-[#e0f0ef] dark:hover:bg-white/10 transition-colors cursor-pointer"
           >
             {isMobileMenuOpen ? (
               <XMarkIcon className="w-6 h-6" />
@@ -138,8 +144,8 @@ const Navbar = () => {
                     <a
                       href={item.href}
                       onClick={(e) => handleNavClick(e, item.href)}
-                      className={`block text-white hover:text-primary ${
-                        isActive ? "text-primary" : ""
+                      className={`block hover:text-primary ${
+                        isActive ? "text-primary" : "dark:text-white"
                       }`}
                     >
                       {item.label}
